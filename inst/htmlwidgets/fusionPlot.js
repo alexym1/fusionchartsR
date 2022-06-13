@@ -16,6 +16,8 @@ HTMLWidgets.widget({
     var fusioncharts = new FusionCharts({
     type: x.type,
     renderAt: el,
+    key: x.license,
+    creditLabel: false,
     width: "100%",
     height: "100%",
     dataFormat: 'json',

@@ -12,5 +12,5 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: false
 RoxygenNote: 7.2.0
-Imports: htmlwidgets, jsonlite, magrittr, shiny
+Imports: htmlwidgets, jsonlite, magrittr, shiny, config
 Suggests: rmarkdown, knitr
