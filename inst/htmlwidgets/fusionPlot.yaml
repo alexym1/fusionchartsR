@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 dependencies:
   - name: fusioncharts
     version: 3.14.1
@@ -13,22 +12,3 @@ dependencies:
     - js/themes/fusioncharts.theme.ocean.js
     - js/themes/fusioncharts.theme.umber.js
     - js/themes/fusioncharts.theme.zune.js
-    stylesheet:
-    - assets/css/fusiondesign.css
-    - assets/css/style.css
-=======
-dependencies:
-  - name: fusioncharts
-    version: 3.14.1
-    src: "htmlwidgets/lib/fusioncharts-3.14.1"
-    script:
-    - js/fusioncharts.js
-    - js/themes/fusioncharts.theme.candy.js
-    - js/themes/fusioncharts.theme.carbon.js
-    - js/themes/fusioncharts.theme.fint.js
-    - js/themes/fusioncharts.theme.fusion.js
-    - js/themes/fusioncharts.theme.gammel.js
-    - js/themes/fusioncharts.theme.ocean.js
-    - js/themes/fusioncharts.theme.umber.js
-    - js/themes/fusioncharts.theme.zune.js
->>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87

@@ -7,11 +7,7 @@
 #' @import htmlwidgets
 #' @importFrom jsonlite toJSON
 #' @importFrom grDevices boxplot.stats
-<<<<<<< HEAD
-#'
-=======
 #' @import config
->>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87
 #'
 #' @param data Default dataset to use
 #' @param x,y character name of variable
@@ -21,9 +17,7 @@
 #'
 #' @export
 fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
-  
-<<<<<<< HEAD
-=======
+
   # Include key license
   key_path <- system.file("config.yml", package = "fusionchartsR")
   if (key_path == "") {
@@ -32,7 +26,6 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     license <- config::get("key", file = key_path)
   }
   
->>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87
   # Main arguments
   category <- NULL
   dataset <- NULL
@@ -169,10 +162,7 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
 
   # forward options using x
   x <- list(
-<<<<<<< HEAD
-=======
     key_license = license,
->>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87
     data = data,
     categories = category,
     dataset = dataset,
