@@ -3,8 +3,5 @@
 .Rdata
 .httr-oauth
 .DS_Store
-<<<<<<< HEAD
 config.yml
 inst/config.yml
-=======
->>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87
