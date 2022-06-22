@@ -1,0 +1,64 @@
+mergeLists <- function (base_list, overlay_list, recursive = TRUE) {
+  
+  if (length(base_list) == 0)
+    
+    overlay_list
+  
+  else if (length(overlay_list) == 0)
+    
+    base_list
+  
+  else {
+    
+    merged_list <- base_list
+    
+    for (name in names(overlay_list)) {
+      
+      base <- base_list[[name]]
+      
+      overlay <- overlay_list[[name]]
+      
+      if (is.list(base) && is.list(overlay) && recursive)
+        
+        merged_list[[name]] <- mergeLists(base, overlay)
+      
+      else {
+        
+        merged_list[[name]] <- NULL
+        
+        merged_list <- append(merged_list,
+                              
+                              overlay_list[which(names(overlay_list) %in% name)])
+        
+      }
+      
+    }
+    
+    merged_list
+    
+  }
+  
+}
+
+#' Pipe
+
+#'
+
+#' Like dplyr, fusionchartsR also uses the pipe function, \code{\%>\%} to turn
+
+#' function composition into a series of imperative statements.
+
+#'
+
+#' @importFrom magrittr %>%
+
+#' @name %>%
+
+#' @rdname pipe
+
+#' @export
+
+#' @param lhs,rhs A visualisation and a function to apply to it
+
+
+NULL
