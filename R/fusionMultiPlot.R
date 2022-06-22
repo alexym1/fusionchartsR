@@ -6,7 +6,11 @@
 #'
 #' @import htmlwidgets
 #' @importFrom jsonlite toJSON
+<<<<<<< HEAD
 #'
+=======
+#' @import config
+>>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87
 #'
 #' @param data Default dataset to use
 #' @param x,y character name of variable
@@ -18,6 +22,17 @@
 #' @export
 fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSuffix = NULL) {
   
+<<<<<<< HEAD
+=======
+  # Include key license
+  key_path <- system.file("config.yml", package = "fusionchartsR")
+  if (key_path == "") {
+    license <- FALSE
+  } else {
+    license <- config::get("key", file = key_path)
+  }
+  
+>>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87
   # Category
   xaxis <- factor(data[,x])
   df <- list(category = data.frame(label = as.character(levels(xaxis))))
@@ -44,9 +59,15 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
   } else {
     
     # Dataset
+<<<<<<< HEAD
     df.list <- lapply(1:length(n), function(z){
       list(
         seriesname = n[z], 
+=======
+    df.list <- lapply(1:length(n), function(x){
+      list(
+        seriesname = n[x], 
+>>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87
         data = data.frame( 
           value = as.character(as.numeric(factor(data[data[,col] == n[z],y])))
         )
@@ -80,6 +101,10 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
   
   # forward options using x
   x <- list(
+<<<<<<< HEAD
+=======
+    key_license = license,
+>>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87
     data = data,
     categories = category,
     dataset = dataset,

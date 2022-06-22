@@ -11,6 +11,11 @@ Authors@R:
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: false
+<<<<<<< HEAD
 RoxygenNote: 7.1.2
 Imports: htmlwidgets, jsonlite, magrittr, shiny
+=======
+RoxygenNote: 7.2.0
+Imports: htmlwidgets, jsonlite, magrittr, shiny, config
+>>>>>>> 618aca640f1c39346260d0f558a311a2e8507f87
 Suggests: rmarkdown, knitr
