@@ -60,7 +60,7 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     
     n <- unique(levels(xaxis))
     df.list <- lapply(1:length(n), function(i){
-      yaxis <- data[data[,x] == n[i],y]
+      yaxis <- na.omit(data[data[,x] == n[i],y])
       stats <- boxplot.stats(yaxis)
       if(length(stats$out) >= 1){
         list(
