@@ -56,7 +56,7 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
       list(
         seriesname = n[x], 
         data = data.frame( 
-          value = as.character(data[data[,col] == n[x],y])
+          value = as.character(as.numeric(factor(data[data[,col] == n[z],y])))
         )
       )
     })
