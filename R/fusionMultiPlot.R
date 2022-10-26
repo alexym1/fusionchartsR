@@ -6,7 +6,6 @@
 #'
 #' @import htmlwidgets
 #' @importFrom jsonlite toJSON
-#' @import config
 #'
 #' @param data Default dataset to use
 #' @param x,y character name of variable
@@ -19,12 +18,7 @@
 fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSuffix = NULL) {
   
   # Include key license
-  key_path <- system.file("config.yml", package = "fusionchartsR")
-  if (key_path == "") {
-    license <- FALSE
-  } else {
-    license <- config::get("key", file = key_path)
-  }
+  license <- Sys.getenv("LICENSE_FUSIONCHARTS")
   
   # Category
   xaxis <- factor(data[,x])

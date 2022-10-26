@@ -7,7 +7,7 @@
 #' @import htmlwidgets
 #' @importFrom jsonlite toJSON
 #' @importFrom grDevices boxplot.stats
-#' @import config
+#' @importFrom stats na.omit
 #'
 #' @param data Default dataset to use
 #' @param x,y character name of variable
@@ -19,12 +19,7 @@
 fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
 
   # Include key license
-  key_path <- system.file("config.yml", package = "fusionchartsR")
-  if (key_path == "") {
-    license <- FALSE
-  } else {
-    license <- config::get("key", file = key_path)
-  }
+  license <- Sys.getenv("LICENSE_FUSIONCHARTS")
   
   # Main arguments
   category <- NULL
