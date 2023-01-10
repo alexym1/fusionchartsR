@@ -29,12 +29,18 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
     colors <- c("#5E72E3", "#FF595E", "#FFCA3A", "#8AC926", "#FB5607", "#00bbf9", "#5E72E3")
     
     # Categories
+    pos_x <- round(x = as.numeric(levels(xaxis)), digits = 2)
+    idx <- floor(length(pos_x) / 7)
+    pos_x[!(seq_along(pos_x) %% idx == 1)] <- NA
+    
     category <- list(
       category = data.frame(
         x = as.character(levels(xaxis)),
-        label = as.character(round(x = as.numeric(levels(xaxis)), digits = 2))
+        label = pos_x
         )
       )
+    
+    category <- na.omit(category$category)
     
     # Dataset
     df.list <- lapply(1:length(n), function(z){
@@ -52,7 +58,11 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
   } else {
     
     # Categories
-    category <- list(category = data.frame(label = as.character(levels(xaxis))))
+    category <- list(
+      category = data.frame(
+        label = as.character(levels(xaxis))
+        )
+      )
     
     # Dataset
     df.list <- lapply(1:length(n), function(z){
