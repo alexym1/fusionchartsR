@@ -25,10 +25,6 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
   category <- NULL
   dataset <- NULL
   
-  # boxandwhisker2d arguments
-  showmean <- "0"
-  showalloutliers <- NULL
-  
   # ConfusionMatrix arguments
   mapbycategory <- "0"
   colorrange <- NULL
@@ -44,8 +40,6 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     data <- toJSON(x = new.data, pretty = TRUE)
 
   } else if(type == "boxandwhisker2d"){
-    
-    showmean <- "1"
     
     xaxis <- factor(data[,x])
     df <- list(category = data.frame(label = as.character(levels(xaxis))))
@@ -66,12 +60,6 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
         )
       }
     })
-    
-    if(length(grep(pattern = "outliers", x = df.list)) > 0){
-      showalloutliers <- 1
-    } else {
-      showalloutliers <- 0
-    }
     
     newlist <- list(seriesname = y, data = df.list)
     dataset <- toJSON(x = newlist, pretty = TRUE, auto_unbox = TRUE)
@@ -205,8 +193,6 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     dataset = dataset,
     type = type,
     numberSuffix = numberSuffix,
-    showmean = showmean,
-    showalloutliers = showalloutliers,
     columns = columns,
     rows = rows,
     colorrange = colorrange,
@@ -232,6 +218,7 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     fusionPalette() %>%
     fusionAnchors() %>%
     # fusionTrendline() %>%
+    fusionCustomBoxplot() %>%
     fusionDiv() %>%
     fusionTooltip() %>%
     fusionLogo() %>%

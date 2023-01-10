@@ -76,6 +76,7 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
     
   }
   
+  categories <- toJSON(x = category, pretty = TRUE)
   dataset <- toJSON(x = df.list, pretty = TRUE, auto_unbox = TRUE)
   
 
@@ -103,7 +104,7 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
   x <- list(
     key_license = license,
     data = data,
-    categories = toJSON(x = category, pretty = TRUE),
+    categories = categories,
     dataset = dataset,
     type = type,
     numberSuffix = numberSuffix
@@ -128,6 +129,7 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
     fusionPalette() %>%
     fusionAnchors() %>%
     # fusionTrendline() %>%
+    fusionCustomBoxplot() %>%
     fusionDiv() %>%
     fusionTooltip() %>%
     fusionLogo() %>%
