@@ -55,6 +55,46 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
       )
     })
     
+  } else if(type == "boxandwhisker2d"){
+    
+    # Categories
+    category <- list(
+      category = data.frame(
+        label = as.character(levels(xaxis))
+      )
+    )
+    
+    # Dataset
+    df.list <- lapply(1:length(n), function(i){
+      
+      tmp <- data[data[,col] == n[i],]
+      
+      res <- lapply(1:length(levels(xaxis)), function(j){
+        
+        yaxis <- na.omit(tmp[tmp[,x] == levels(xaxis)[j],y])
+        stats <- boxplot.stats(yaxis)
+        
+        if(length(stats$out) >= 1){
+          list(
+            value = toString(yaxis[! yaxis %in% unique(stats$out)]),
+            outliers = toString(unique(stats$out))
+          )
+        } else {
+          list(
+            value = toString(yaxis)
+          )
+        }
+        
+      })
+      
+      list(
+        seriesname = n[i], 
+        data = res
+      )
+      
+    })
+    
+    
   } else {
     
     # Categories

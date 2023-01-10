@@ -28,7 +28,7 @@ HTMLWidgets.widget({
           "numberSuffix": x.numberSuffix,
           "mapbycategory": x.mapbycategory,
           
-          // fusionCustomBoxplot
+          // fusionCustomBoxplot()
           "showmean": x.showmean,
           "drawmeanconnector": x.drawmeanconnector,
           "mediancolor": x.mediancolor,
