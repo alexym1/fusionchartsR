@@ -20,15 +20,21 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
   # Include key license
   license <- Sys.getenv("LICENSE_FUSIONCHARTS")
   
-  # Category
+  # Groups
   xaxis <- factor(data[,x])
-  df <- list(category = data.frame(label = as.character(levels(xaxis))))
-  category <- toJSON(x = df, pretty = TRUE)
   n <- levels(factor(data[,col]))
   
   if(type == "scatter"){
     
     colors <- c("#5E72E3", "#FF595E", "#FFCA3A", "#8AC926", "#FB5607", "#00bbf9", "#5E72E3")
+    
+    # Categories
+    category <- list(
+      category = data.frame(
+        x = as.character(levels(xaxis)),
+        label = as.character(round(x = as.numeric(levels(xaxis)), digits = 2))
+        )
+      )
     
     # Dataset
     df.list <- lapply(1:length(n), function(z){
@@ -44,6 +50,9 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
     })
     
   } else {
+    
+    # Categories
+    category <- list(category = data.frame(label = as.character(levels(xaxis))))
     
     # Dataset
     df.list <- lapply(1:length(n), function(z){
@@ -84,7 +93,7 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
   x <- list(
     key_license = license,
     data = data,
-    categories = category,
+    categories = toJSON(x = category, pretty = TRUE),
     dataset = dataset,
     type = type,
     numberSuffix = numberSuffix

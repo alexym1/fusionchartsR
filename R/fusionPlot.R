@@ -38,14 +38,12 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
 
   charts <- available_charts()
 
-  if(type %in% charts[[1]][-c(13:15)]){
+  if(type %in% charts[[1]][-c(13:16)]){
 
     new.data <- data.frame(label = factor(data[,x]), value = data[,y])
     data <- toJSON(x = new.data, pretty = TRUE)
 
-  }
-  
-  else if(type == "boxandwhisker2d"){
+  } else if(type == "boxandwhisker2d"){
     
     showmean <- "1"
     
@@ -62,8 +60,7 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
           value = toString(yaxis[! yaxis %in% unique(stats$out)]),
           outliers = toString(unique(stats$out))
         )
-      }
-      else {
+      } else {
         list(
           value = toString(yaxis)
         )
@@ -72,17 +69,14 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     
     if(length(grep(pattern = "outliers", x = df.list)) > 0){
       showalloutliers <- 1
-    }
-    else {
+    } else {
       showalloutliers <- 0
     }
     
     newlist <- list(seriesname = y, data = df.list)
     dataset <- toJSON(x = newlist, pretty = TRUE, auto_unbox = TRUE)
     
-  }
-  
-  else if(type == "confusionMatrix") {
+  } else if(type == "confusionMatrix") {
     
     type <- "heatmap"
     mapbycategory <- "1"
@@ -132,15 +126,63 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     
     dataset <- toJSON(x = data01, pretty = TRUE, auto_unbox = TRUE)
     
-  }
-  else if(type == "scatter"){
+  } else if(type == "heatmapCorr"){
+    
+    type <- "heatmap"
+    mapbycategory <- "0"
+    
+    color <- list(
+      gradient = "1",
+      startlabel = "Negative",
+      endlabel = "Positive",
+      color = data.frame(
+        code = c("#FF595E", "#FFFFFF", "#5E72E3"),
+        maxvalue = c("-1", "0", "1")
+      )
+    )
+    
+    colorrange <- toJSON(x = color, pretty = TRUE, auto_unbox = TRUE)
+    
+    column01 <- list(
+      column = data.frame(
+        id = paste0("GROUP", colnames(data)),
+        label = colnames(data)
+      )
+    )
+    
+    columns <- toJSON(x = column01, pretty = TRUE)
+    
+    row01 <- list(
+      row = data.frame(
+        id = paste0("group", rownames(data)),
+        label = rownames(data)
+      )
+    )
+    
+    rows <- toJSON(x = row01, pretty = TRUE)
+    
+    columnid <- lapply(1:length(column01$column$id), function(x){
+      rep(column01$column$id[x], times = ncol(data))
+    })
+    
+    data01 <- list(
+      data = data.frame(
+        rowid = rep(row01$row$id, times = nrow(data)),
+        columnid = do.call(c, columnid),
+        value = as.character(as.vector(data))
+      )
+    )
+    
+    dataset <- toJSON(x = data01, pretty = TRUE, auto_unbox = TRUE)
+    
+    
+  } else if(type == "scatter"){
     
     df <- data.frame(x = data[,x], y = data[,y])
     dataset <- list(data = df)
     dataset <- toJSON(x = dataset, pretty = TRUE, auto_unbox = TRUE)
     
-  }
-  else{
+  } else{
     stop('Chart not available. Please check `fusionMultiPlot()`')
   }
 

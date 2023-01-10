@@ -12,7 +12,7 @@ fusionLegend(
   legendAllowDrag = FALSE,
   legendIconScale = "1",
   reverseLegend = FALSE,
-  legendCaption = NULL,
+  legendCaption = "",
   legendCaptionBold = TRUE,
   legendCaptionFont = "Arial",
   legendCaptionFontSize = "14",
