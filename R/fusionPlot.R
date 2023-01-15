@@ -31,15 +31,7 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
   columns <- NULL
   rows <- NULL
   
-
-  charts <- available_charts()
-
-  if(type %in% charts[[1]][-c(13:16)]){
-
-    new.data <- data.frame(label = factor(data[,x]), value = data[,y])
-    data <- toJSON(x = new.data, pretty = TRUE)
-
-  } else if(type == "boxandwhisker2d"){
+  if(type == "boxandwhisker2d"){
     
     xaxis <- factor(data[,x])
     df <- list(category = data.frame(label = as.character(levels(xaxis))))
@@ -64,7 +56,7 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     newlist <- list(seriesname = y, data = df.list)
     dataset <- toJSON(x = newlist, pretty = TRUE, auto_unbox = TRUE)
     
-  } else if(type == "confusionMatrix") {
+  } else if(type == "confusionMatrix"){
     
     type <- "heatmap"
     mapbycategory <- "1"
@@ -170,9 +162,13 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     dataset <- list(data = df)
     dataset <- toJSON(x = dataset, pretty = TRUE, auto_unbox = TRUE)
     
-  } else{
-    stop('Chart not available. Please check `fusionMultiPlot()`')
+  } else {
+    
+    new.data <- data.frame(label = factor(data[,x]), value = data[,y])
+    data <- toJSON(x = new.data, pretty = TRUE)
+    
   }
+  
 
 
 #' @examples

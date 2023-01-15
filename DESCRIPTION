@@ -1,6 +1,6 @@
 Package: fusionchartsR
 Type: Package
-Version: 0.0.4
+Version: 0.0.5
 Title: Embedding 'FusionCharts Javascript' Library in R
 Description: FusionCharts provides awesome and minimalist functions to make beautiful interactive charts <https://www.fusioncharts.com/>.
 Authors@R: 

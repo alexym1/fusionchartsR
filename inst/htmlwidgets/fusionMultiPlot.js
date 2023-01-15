@@ -24,19 +24,22 @@ HTMLWidgets.widget({
             dataSource: {
               // Chart Configuration
               "chart": {
-                // fusionPlot()
+                
+                // fusionMultiPlot()
                 "numberSuffix": x.numberSuffix,
                 
-                "mediancolor": "#FFFFFF",
-                "meaniconshape": "polygon",
-                "meaniconsides": "2",
-                "meaniconsides": "2",
-                "meaniconradius": "2",
-                
-                "outliericonsides": "20",
-                "outliericonalpha": "40",
-                "outliericonshape": "triangle",
-                "outliericonsradius": "4",
+                // fusionCustomBoxplot()
+                "showmean": x.showmean,
+                "drawmeanconnector": x.drawmeanconnector,
+                "mediancolor": x.mediancolor,
+                "meaniconshape": x.meaniconshape,
+                "meaniconsides": x.meaniconsides,
+                "meaniconradius": x.meaniconradius,
+                "showalloutliers": x.showalloutliers,
+                "outliericonsides": x.outliericonsides,
+                "outliericonalpha": x.outliericonalpha,
+                "outliericonshape": x.outliericonshape,
+                "outliericonsradius": x.outliericonsradius,
                 
                 // fusionCaption()
                 "caption": x.caption,
