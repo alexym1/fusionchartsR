@@ -26,7 +26,10 @@ fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSu
   
   if(type == "scatter"){
     
-    colors <- c("#5E72E3", "#FF595E", "#FFCA3A", "#8AC926", "#FB5607", "#00bbf9", "#5E72E3")
+    colors <- rep(
+      c("#5E72E3", "#FF595E", "#FFCA3A", "#8AC926", "#FB5607", "#00bbf9"),
+      length.out = length(unique(data[,col]))
+    )
     
     # Categories
     pos_x <- round(x = as.numeric(levels(xaxis)), digits = 2)
