@@ -9,7 +9,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "al3x_martinez@yahoo.com")
 License: MIT + file LICENSE
-URL: https://alexym1.fusionchartsr.io, https://github.com/alexym1/fusionchartsR
+URL: https://alexym1.github.io/fusionchartsR/, https://github.com/alexym1/fusionchartsR
 BugReports: https://github.com/alexym1/fusionchartsR/issues
 Encoding: UTF-8
 LazyData: false
