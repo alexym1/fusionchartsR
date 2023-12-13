@@ -1,14 +1,16 @@
 Package: fusionchartsR
 Type: Package
-Version: 0.0.5
-Title: Embedding 'FusionCharts Javascript' Library in R
+Version: 1.0.0
+Title: Embedding FusionCharts in R
 Description: FusionCharts provides awesome and minimalist functions to make beautiful interactive charts <https://www.fusioncharts.com/>.
 Authors@R: 
     person(given = "Alex",
-           family = "Yahiaoui Martinez",
+           family = "Martinez",
            role = c("aut", "cre"),
-           email = "yahiaoui-martinez.alex@outlook.com")
+           email = "al3x_martinez@yahoo.com")
 License: MIT + file LICENSE
+URL: https://alexym1.fusionchartsr.io, https://github.com/alexym1/fusionchartsR
+BugReports: https://github.com/alexym1/fusionchartsR/issues
 Encoding: UTF-8
 LazyData: false
 RoxygenNote: 7.2.1

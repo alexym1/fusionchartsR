@@ -1,18 +1,18 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# fusionchartsR <a href=#><img src='inst/fusionchartsR_logo.png' align="right" height="139" /></a>
+# fusionchartsR <a href=#><img src='man/figures/fusionchartsR_logo.png' align="right" height="139" /></a>
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/fusionchartsR)](https://cran.r-project.org/package=fusionchartsR)
 [![](https://cranlogs.r-pkg.org/badges/fusionchartsR)](https://cran.r-project.org/package=fusionchartsR)
-![](https://img.shields.io/badge/github%20version-0.0.5-green.svg)
+![](https://img.shields.io/badge/github%20version-1.0.0-green.svg)
 
 > R interface to FusionCharts
 
 ## fusionchartsR
 
-`{fusionchartsR}` was designed to provide an R interface to the
-javascript library [FusionCharts](https://github.com/fusioncharts).
+`{fusionchartsR}` was designed to provide an R interface to
+[FusionCharts](https://github.com/fusioncharts).
 
 ## Installation
 
@@ -31,9 +31,8 @@ devtools::install_github("alexym1/fusionchartsR")
 
 ## Example
 
-## Resource
-
-Official website at <https://www.fusioncharts.com/>
+You can retrieve a demo
+[here](https://udmy52-alex0yahiaoui0martinez.shinyapps.io/FusionShiny/).
 
 ## Licence
 

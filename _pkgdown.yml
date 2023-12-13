@@ -1,0 +1,60 @@
+url: https://alexym1.fusionchartsr.io
+
+home:
+  title: Embedding fusioncharts.js in R
+
+authors:
+  Alex Martinez:
+    href: https://github.com/alexym1
+    
+development:
+  mode: auto
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#0054AD"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
+  search:
+    exclude: ['news/index.html']
+
+reference:
+- title: Build
+  desc:  Build a complete chart with one of its components.
+  contents:
+  - fusionPlot
+  - fusionMultiPlot
+  - fusionCaption
+  - fusionSubcaption
+  - fusionAxis
+  - fusionLegend
+  - fusionTheme
+
+- title: Custom
+  desc:  Customize a chart with one of its components..
+  contents:
+  - fusionAnchors
+  - fusionBackground
+  - fusionCanvas
+  - fusionCustomAxis
+  - fusionCustomBoxplot
+  - fusionCustomLegend
+  - fusionDiv
+  - fusionLogo
+  - fusionPalette
+  - fusionTooltip
+  
+- title: App
+  desc: Run shiny app.
+  contents:
+  - runDemo
+  - fusionPlotOutput
+  - renderfusionPlot
+  - fusionMultiPlotOutput
+  - renderFusionMultiPlot
+  
+news:
+  releases:
+  - text: "Version 1.0.0"
+    href: #
