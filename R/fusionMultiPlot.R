@@ -180,7 +180,7 @@ fusionMultiPlot <- function(data, x, y, col, type = "msstepline", numberSuffix =
     fusionCustomLegend() %>%
     fusionPalette() %>%
     fusionAnchors() %>%
-    # fusionTrendline() %>%
+    fusionTrendline() %>%
     fusionCustomBoxplot() %>%
     fusionDiv() %>%
     fusionTooltip() %>%

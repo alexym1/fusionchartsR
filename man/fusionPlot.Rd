@@ -11,13 +11,16 @@ fusionPlot(data, x, y, type = "column2d", numberSuffix = NULL)
 
 \item{x, y}{character name of variable}
 
-\item{type}{See `available_charts()`}
+\item{type}{type of chart}
 
 \item{numberSuffix}{Specify the suffix for all the Y-axis values on the chart}
 }
 \description{
 Main function to make interactive charts.
 Check all charts at \url{https://www.fusioncharts.com/charts}
+}
+\details{
+A 2x2 confusion matrix can be displayed using `type = "confusionMatrix"`.
 }
 \examples{
 library(fusionchartsR)

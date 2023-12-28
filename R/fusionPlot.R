@@ -195,7 +195,7 @@ fusionPlot <- function(data, x, y, type = "column2d", numberSuffix = NULL) {
     fusionCustomLegend() %>%
     fusionPalette() %>%
     fusionAnchors() %>%
-    # fusionTrendline() %>%
+    fusionTrendline() %>%
     fusionCustomBoxplot() %>%
     fusionDiv() %>%
     fusionTooltip() %>%

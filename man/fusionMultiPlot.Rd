@@ -13,7 +13,7 @@ fusionMultiPlot(data, x, y, col, type = "msstepline", numberSuffix = NULL)
 
 \item{col}{define seriesname variable}
 
-\item{type}{See `available_charts()`}
+\item{type}{type of chart}
 
 \item{numberSuffix}{Specify the suffix for all the Y-axis values on the chart}
 }
