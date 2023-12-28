@@ -4,14 +4,7 @@
 \alias{fusionMultiPlot}
 \title{Create new multiple charts}
 \usage{
-fusionMultiPlot(
-  data,
-  x,
-  y,
-  col = NULL,
-  type = "msstepline",
-  numberSuffix = NULL
-)
+fusionMultiPlot(data, x, y, col, type = "msstepline", numberSuffix = NULL)
 }
 \arguments{
 \item{data}{Default dataset to use}

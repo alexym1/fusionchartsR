@@ -10,12 +10,21 @@
 #' @param data Default dataset to use
 #' @param x,y character name of variable
 #' @param col define seriesname variable
-#' @param type See `available_charts()`
+#' @param type type of chart
 #' @param numberSuffix Specify the suffix for all the Y-axis values on the chart
 #'
 #'
 #' @export
-fusionMultiPlot <- function(data,x, y, col = NULL, type = "msstepline", numberSuffix = NULL) {
+fusionMultiPlot <- function(data, x, y, col, type = "msstepline", numberSuffix = NULL) {
+  
+  # Include unit tests
+  stopifnot(is.data.frame(data))
+  stopifnot(is.character(x))
+  stopifnot(is.character(y))
+  stopifnot(is.character(col))
+  stopifnot(is.character(type))
+  stopifnot(is.character(numberSuffix) | is.null(numberSuffix))
+  
   
   # Include key license
   license <- Sys.getenv("LICENSE_FUSIONCHARTS")

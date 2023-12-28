@@ -11,12 +11,26 @@
 #'
 #' @param data Default dataset to use
 #' @param x,y character name of variable
-#' @param type See `available_charts()`
+#' @param type type of chart
 #' @param numberSuffix Specify the suffix for all the Y-axis values on the chart
 #'
-#'
+#' @details A 2x2 confusion matrix can be displayed using `type = "confusionMatrix"`.
+#' 
 #' @export
-fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
+fusionPlot <- function(data, x, y, type = "column2d", numberSuffix = NULL) {
+  
+  # Include unit tests
+  if(type %in% c("confusionMatrix", "heatmap")){
+    stopifnot(is.matrix(data))
+  } else {
+    stopifnot(is.data.frame(data))
+    stopifnot(is.character(x))
+    stopifnot(is.character(y))
+  }
+  
+  stopifnot(is.character(type))
+  stopifnot(is.character(numberSuffix) | is.null(numberSuffix))
+  
 
   # Include key license
   license <- Sys.getenv("LICENSE_FUSIONCHARTS")
@@ -24,8 +38,6 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
   # Main arguments
   category <- NULL
   dataset <- NULL
-  
-  # ConfusionMatrix arguments
   mapbycategory <- "0"
   colorrange <- NULL
   columns <- NULL
@@ -56,22 +68,35 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
     newlist <- list(seriesname = y, data = df.list)
     dataset <- toJSON(x = newlist, pretty = TRUE, auto_unbox = TRUE)
     
-  } else if(type == "confusionMatrix"){
+  } else if(type %in% c("confusionMatrix", "heatmap")){
     
-    type <- "heatmap"
-    mapbycategory <- "1"
-    
-    color <- list(
-      gradient = c("0", "0"),
-      color = data.frame(
-        code = c("#5E72E4", "#FFFFFF"),
-        minvalue = c("0", "0"),
-        maxvalue = c("Infinity", "Infinity"),
-        label = c("Good", "Bad")
+    if(type == "confusionMatrix"){
+      
+      mapbycategory <- "1"
+      
+      color <- list(
+        gradient = c("0", "0"),
+        color = data.frame(
+          code = c("#5E72E4", "#FFFFFF"),
+          minvalue = c("0", "0"),
+          maxvalue = c("Infinity", "Infinity"),
+          label = c("Good", "Bad")
+        )
       )
-    )
+      
+    } else {
     
-    colorrange <- toJSON(x = color, pretty = TRUE, auto_unbox = TRUE)
+      color <- list(
+        gradient = "1",
+        startlabel = "Negative",
+        endlabel = "Positive",
+        color = data.frame(
+          code = c("#FF595E", "#FFFFFF", "#5E72E3"),
+          maxvalue = c("-1", "0", "1")
+        )
+      )
+      
+    }
     
     column01 <- list(
       column = data.frame(
@@ -80,8 +105,6 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
       )
     )
     
-    columns <- toJSON(x = column01, pretty = TRUE)
-    
     row01 <- list(
       row = data.frame(
         id = paste0("group", rownames(data)),
@@ -89,78 +112,39 @@ fusionPlot <- function(data,x, y, type = "column2d", numberSuffix = NULL) {
       )
     )
     
-    rows <- toJSON(x = row01, pretty = TRUE)
-    
     columnid <- lapply(1:length(column01$column$id), function(x){
       rep(column01$column$id[x], times = ncol(data))
     })
     
-    data01 <- list(
-      data = data.frame(
-        rowid = rep(row01$row$id, times = nrow(data)),
-        columnid = do.call(c, columnid),
-        displayvalue = as.character(as.vector(data)),
-        colorrangelabel = c("Good", "Bad", "Bad", "Good")
+    if(type == "confusionMatrix"){
+      data01 <- list(
+        data = data.frame(
+          rowid = rep(row01$row$id, times = nrow(data)),
+          columnid = do.call(c, columnid),
+          displayvalue = as.character(as.vector(data)),
+          colorrangelabel = c("Good", "Bad", "Bad", "Good")
+        )
       )
-    )
-    
-    dataset <- toJSON(x = data01, pretty = TRUE, auto_unbox = TRUE)
-    
-  } else if(type == "heatmapCorr"){
+    } else {
+      data01 <- list(
+        data = data.frame(
+          rowid = rep(row01$row$id, times = nrow(data)),
+          columnid = do.call(c, columnid),
+          value = as.character(as.vector(data))
+        )
+      )
+    }
     
     type <- "heatmap"
-    mapbycategory <- "0"
-    
-    color <- list(
-      gradient = "1",
-      startlabel = "Negative",
-      endlabel = "Positive",
-      color = data.frame(
-        code = c("#FF595E", "#FFFFFF", "#5E72E3"),
-        maxvalue = c("-1", "0", "1")
-      )
-    )
-    
     colorrange <- toJSON(x = color, pretty = TRUE, auto_unbox = TRUE)
-    
-    column01 <- list(
-      column = data.frame(
-        id = paste0("GROUP", colnames(data)),
-        label = colnames(data)
-      )
-    )
-    
     columns <- toJSON(x = column01, pretty = TRUE)
-    
-    row01 <- list(
-      row = data.frame(
-        id = paste0("group", rownames(data)),
-        label = rownames(data)
-      )
-    )
-    
     rows <- toJSON(x = row01, pretty = TRUE)
-    
-    columnid <- lapply(1:length(column01$column$id), function(x){
-      rep(column01$column$id[x], times = ncol(data))
-    })
-    
-    data01 <- list(
-      data = data.frame(
-        rowid = rep(row01$row$id, times = nrow(data)),
-        columnid = do.call(c, columnid),
-        value = as.character(as.vector(data))
-      )
-    )
-    
     dataset <- toJSON(x = data01, pretty = TRUE, auto_unbox = TRUE)
     
-    
-  } else if(type == "scatter"){
+  }  else if(type == "scatter"){
     
     df <- data.frame(x = data[,x], y = data[,y])
-    dataset <- list(data = df)
-    dataset <- toJSON(x = dataset, pretty = TRUE, auto_unbox = TRUE)
+    dataset <- toJSON(x = list(data = df), pretty = TRUE, auto_unbox = TRUE)
     
   } else {
     
