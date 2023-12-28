@@ -70,34 +70,6 @@ fusionPlot <- function(data, x, y, type = "column2d", numberSuffix = NULL) {
     
   } else if(type %in% c("confusionMatrix", "heatmap")){
     
-    if(type == "confusionMatrix"){
-      
-      mapbycategory <- "1"
-      
-      color <- list(
-        gradient = c("0", "0"),
-        color = data.frame(
-          code = c("#5E72E4", "#FFFFFF"),
-          minvalue = c("0", "0"),
-          maxvalue = c("Infinity", "Infinity"),
-          label = c("Good", "Bad")
-        )
-      )
-      
-    } else {
-    
-      color <- list(
-        gradient = "1",
-        startlabel = "Negative",
-        endlabel = "Positive",
-        color = data.frame(
-          code = c("#FF595E", "#FFFFFF", "#5E72E3"),
-          maxvalue = c("-1", "0", "1")
-        )
-      )
-      
-    }
-    
     column01 <- list(
       column = data.frame(
         id = paste0("GROUP", colnames(data)),
@@ -117,6 +89,19 @@ fusionPlot <- function(data, x, y, type = "column2d", numberSuffix = NULL) {
     })
     
     if(type == "confusionMatrix"){
+      
+      mapbycategory <- "1"
+      
+      color <- list(
+        gradient = c("0", "0"),
+        color = data.frame(
+          code = c("#5E72E4", "#FFFFFF"),
+          minvalue = c("0", "0"),
+          maxvalue = c("Infinity", "Infinity"),
+          label = c("Good", "Bad")
+        )
+      )
+      
       data01 <- list(
         data = data.frame(
           rowid = rep(row01$row$id, times = nrow(data)),
@@ -125,7 +110,19 @@ fusionPlot <- function(data, x, y, type = "column2d", numberSuffix = NULL) {
           colorrangelabel = c("Good", "Bad", "Bad", "Good")
         )
       )
+      
     } else {
+    
+      color <- list(
+        gradient = "1",
+        startlabel = "Negative",
+        endlabel = "Positive",
+        color = data.frame(
+          code = c("#FF595E", "#FFFFFF", "#5E72E3"),
+          maxvalue = c("-1", "0", "1")
+        )
+      )
+      
       data01 <- list(
         data = data.frame(
           rowid = rep(row01$row$id, times = nrow(data)),
@@ -133,6 +130,7 @@ fusionPlot <- function(data, x, y, type = "column2d", numberSuffix = NULL) {
           value = as.character(as.vector(data))
         )
       )
+      
     }
     
     type <- "heatmap"
