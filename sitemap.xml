@@ -1,84 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://alexym1.fusionchartsr.io/404.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/404.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/LICENSE-text.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/authors.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/authors.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/index.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/index.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/news/index.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/news/index.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionAnchors.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionAnchors.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionAxis.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionAxis.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionBackground.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionBackground.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionCanvas.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionCanvas.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionCaption.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionCaption.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionCustomAxis.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionCustomAxis.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionCustomBoxplot.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionCustomBoxplot.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionCustomLegend.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionCustomLegend.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionDiv.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionDiv.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionLegend.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionLegend.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionLogo.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionLogo.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionMultiPlot-shiny.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionMultiPlot-shiny.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionMultiPlot.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionMultiPlot.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionPalette.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionPalette.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionPlot.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionPlot.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionPlotOutput.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionPlotOutput.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionSubcaption.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionSubcaption.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionTheme.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionTheme.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/fusionTooltip.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionTooltip.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/index.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/fusionTrendline.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/pipe.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://alexym1.fusionchartsr.io/reference/runDemo.html</loc>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://alexym1.github.io/fusionchartsR/reference/runDemo.html</loc>
   </url>
 </urlset>
