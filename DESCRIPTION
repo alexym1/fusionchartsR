@@ -7,7 +7,7 @@ Authors@R:
     person(given = "Alex",
            family = "Martinez",
            role = c("aut", "cre"),
-           email = "al3x_martinez@yahoo.com")
+           email = "yahiaoui-martinez.alex@outlook.com")
 License: MIT + file LICENSE
 URL: https://alexym1.github.io/fusionchartsR/, https://github.com/alexym1/fusionchartsR
 BugReports: https://github.com/alexym1/fusionchartsR/issues
