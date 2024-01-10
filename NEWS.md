@@ -5,6 +5,7 @@
 * Use `NEWS.md` as CHANGELOG
 * Add `.github/workflows/pkgdown.yaml`
 * Replace example by a shiny demo
+* Add `fusionTrendline()`
 
 # fusionchartsR 0.0.5
 

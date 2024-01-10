@@ -244,21 +244,21 @@ HTMLWidgets.widget({
           "theme": x.theme,
 
           // fusionTrendline()
-          //"trendValueFont": x.trendValueFont,
-          //"trendValueFontSize": x.trendValueFontSize,
-          //"trendValueFontBold": x.trendValueFontBold,
-          //"trendValueFontItalic": x.trendValueFontItalic,
-          //"trendValueAlpha": x.trendValueAlpha,
-          //"trendValueBgColor": x.trendValueBgColor,
-          //"trendValueBgAlpha": x.trendValueBgAlpha,
-          //"trendValueBorderColor": x.trendValueBorderColor,
-          //"trendValueBorderAlpha": x.trendValueBorderAlpha,
-          //"trendValueBorderPadding": x.trendValueBorderPadding,
-          //"trendValueBorderRadius": x.trendValueBorderRadius,
-          //"trendValueBorderThickness": x.trendValueBorderThickness,
-          //"trendValueBorderDashed": x.trendValueBorderDashed,
-          //"trendValueBorderDashLen": x.trendValueBorderDashLen,
-          //"trendValueBorderDashGap": x.trendValueBorderDashGap,
+          "trendValueFont": x.trendValueFont,
+          "trendValueFontSize": x.trendValueFontSize,
+          "trendValueFontBold": x.trendValueFontBold,
+          "trendValueFontItalic": x.trendValueFontItalic,
+          "trendValueAlpha": x.trendValueAlpha,
+          "trendValueBgColor": x.trendValueBgColor,
+          "trendValueBgAlpha": x.trendValueBgAlpha,
+          "trendValueBorderColor": x.trendValueBorderColor,
+          "trendValueBorderAlpha": x.trendValueBorderAlpha,
+          "trendValueBorderPadding": x.trendValueBorderPadding,
+          "trendValueBorderRadius": x.trendValueBorderRadius,
+          "trendValueBorderThickness": x.trendValueBorderThickness,
+          "trendValueBorderDashed": x.trendValueBorderDashed,
+          "trendValueBorderDashLen": x.trendValueBorderDashLen,
+          "trendValueBorderDashGap": x.trendValueBorderDashGap,
 
           // fusionLogo()
           "logoURL": x.logoURL,
@@ -306,21 +306,21 @@ HTMLWidgets.widget({
         
         // heatmap
         "columns": x.columns,
-        "rows": x.rows
+        "rows": x.rows,
 
         // fusionTrendline()
-        //"trendlines": [{
-        //  "line": [{
-        //    "isTrendZone": x.isTrendZone,
-        //    "displayValue": x.displayValue,
-        //    "startvalue": x.startValue,
-        //    "endvalue": x.endValue,
-        //    "color": x.color,
-        //    "thickness": x.thickness,
-        //    "alpha": x.alpha,
-        //    "valueOnRight": x.valueOnRight
-        //  }]
-        //}]
+        "trendlines": [{
+          "line": [{
+            "isTrendZone": x.isTrendZone,
+            "displayValue": x.displayValue,
+            "startvalue": x.startValue,
+            "endvalue": x.endValue,
+            "color": x.color,
+            "thickness": x.thickness,
+            "alpha": x.alpha,
+            "valueOnRight": x.valueOnRight
+          }]
+        }]
     }
 });
     fusioncharts.render();
