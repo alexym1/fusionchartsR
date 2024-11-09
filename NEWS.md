@@ -1,4 +1,4 @@
-# fusionchartsR (development version)
+# # fusionchartsR 1.0.0
 
 * Add `renv.lock`
 * Release website using pkgdown
