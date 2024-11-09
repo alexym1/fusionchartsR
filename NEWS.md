@@ -1,6 +1,7 @@
 # fusionchartsR (development version)
 
-* Release website using pkgdown 2.0.7
+* Add `renv.lock`
+* Release website using pkgdown
 * Rename `fusionchartsR_logo.png` to `logo.png`. Move logo from `inst/logo.png` to `man/figures/logo.png` and resize  to 150x150.
 * Use `NEWS.md` as CHANGELOG
 * Add `.github/workflows/pkgdown.yaml`

@@ -37,10 +37,6 @@
 #' 
 #' df %>%
 #' fusionPlot(x = "label", y = "value", type = "pie2d") %>%
-#' fusionTheme(theme = "gammel")
-#' 
-#' df %>%
-#' fusionPlot(x = "label", y = "value", type = "pie2d") %>%
 #' fusionPalette(palettecolors = c("5d62b5", "29c3be", "f2726f")) %>%
 #' fusionTheme(theme = "gammel")
 #'

@@ -2,8 +2,11 @@
 ^renv\.lock$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.github$
 ^README.Rmd
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
-\.github$
+^LICENSE\.md$
+^NEWS\.md$
+^codecov\.yml$
