@@ -4,7 +4,7 @@ Version: 1.0.0
 Title: Embedding FusionCharts in R
 Description: FusionCharts provides awesome and minimalist functions to make beautiful interactive charts <https://www.fusioncharts.com/>.
 Authors@R: c(
-    person("Alex", "Martinez", , "yahiaoui-martinez.alex@outlook.com", role = c("aut", "cre"),
+    person("Alex","Yahiaoui Martinez", , "yahiaoui-martinez.alex@outlook.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5315-675X"))
     )
 License: MIT + file LICENSE

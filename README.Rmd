@@ -50,5 +50,5 @@ You can retrieve a demo [here](https://udmy52-alex0yahiaoui0martinez.shinyapps.i
 
 ## Licence 
 
-FusionChartsR has dependencies on FusionCharts, a commercial JavaScript charting library. FusionCharts is not free for commercial and governmental use. Please, purchase a licence at https://www.fusioncharts.com/buy.
+FusionChartsR has dependencies on FusionCharts, a commercial JavaScript charting library. FusionCharts is not free for commercial and governmental use. Please, purchase a licence at https://cart.fusioncharts.com/.
 
