@@ -39,4 +39,4 @@ You can retrieve a demo
 FusionChartsR has dependencies on FusionCharts, a commercial JavaScript
 charting library. FusionCharts is not free for commercial and
 governmental use. Please, purchase a licence at
-<https://www.fusioncharts.com/buy>.
+<https://cart.fusioncharts.com/>.
