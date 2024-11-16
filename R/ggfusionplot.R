@@ -1,13 +1,25 @@
-library(ggplot2)
-object <- ggplot(data = mtcars, aes(x = wt, y = mpg)) +
-  geom_point()
-
+#' Convert ggplot2 to fusionchartsR
+#'
+#' This function converts a [ggplot2::ggplot()] object to a fusioncharstR object. 
+#'
+#' @param object a ggplot object
+#' 
+#' @examples
+#' library(fusionchartsR)
+#' library(ggplot2)
+#' 
+#' object <- ggplot(data = mtcars, aes(x = wt, y = mpg)) +
+#'   geom_point()
+#'  
+#' ggfusionplot(object)
+#' @export
 ggfusionplot <- function(object){
   data <- object$data
   
   type <- switch(
     as.character(object$layers[[1]]$constructor[[1]]),
-    "geom_point" = "scatter"
+    "geom_point" = "scatter",
+    "geom_line" = "line"
   )
 
   x <- as.character(object[["mapping"]][["x"]][[2]])
@@ -31,17 +43,20 @@ ggfusionplot <- function(object){
   colors <- c("red", "blue", "green", "yellow", "pink", "black", "white", "orange")
   
   if("colour" %in% names(object$labels)){
-    colour <- "#000"
-    #if(object$labels$background$fill %in% colors){
-    #  background <- col2hex(object$labels$background$fill)
-    #} else {
-    #  background <- object$labels$background$fill
-    #}
+    if(object$mapping$colour %in% colors){
+      colour <- col2hex(object$mapping$colour)
+    } else {
+      colour <- object$mapping$colour
+    }
   } else {
     colour <- "#000"
   }
   
-  size <- ifelse("colour" %in% object$labels, 0.2,  object$layers[[1]]$geom$default_aes$size)
+  if("size" %in% names(object$labels)){
+    size <- object$labels$size
+  } else {
+    size <- 0.2
+  }
   
   if("background" %in% names(object$labels)){
     if(object$labels$background$fill %in% colors){
@@ -62,8 +77,13 @@ ggfusionplot <- function(object){
       anchorBorderColor = colour, 
       anchorBorderThickness = as.character(size)
     ) %>%
-    fusionDiv(vDivLineColor = "#fff", divLineColor = "#fff") %>%
+    fusionDiv(vDivLineColor = "#F2F2F2", divLineColor = "#5a5a5a") %>%
     fusionBackground(bgColorStart = background)
   
   return(res_plot)
+}
+
+col2hex <- function(col) {
+  rgb <- grDevices::col2rgb(col)
+  return(paste0("#", sprintf("%02x%02x%02x", rgb[1], rgb[2], rgb[3])))
 }

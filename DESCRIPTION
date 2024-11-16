@@ -13,5 +13,5 @@ BugReports: https://github.com/alexym1/fusionchartsR/issues
 Encoding: UTF-8
 LazyData: false
 RoxygenNote: 7.3.2
-Imports: htmlwidgets, jsonlite, magrittr, shiny
+Imports: ggplot2, htmlwidgets, jsonlite, magrittr, shiny
 Suggests: rmarkdown, knitr
