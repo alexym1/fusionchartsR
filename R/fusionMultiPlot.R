@@ -16,7 +16,6 @@
 #'
 #' @export
 fusionMultiPlot <- function(data, x, y, col, type = "msstepline", numberSuffix = NULL) {
-  
   # Include unit tests
   stopifnot(is.data.frame(data))
   stopifnot(is.character(x))
@@ -24,71 +23,66 @@ fusionMultiPlot <- function(data, x, y, col, type = "msstepline", numberSuffix =
   stopifnot(is.character(col))
   stopifnot(is.character(type))
   stopifnot(is.character(numberSuffix) | is.null(numberSuffix))
-  
-  
+
+
   # Include key license
   license <- Sys.getenv("LICENSE_FUSIONCHARTS")
-  
+
   # Groups
-  xaxis <- factor(data[,x])
-  n <- levels(factor(data[,col]))
-  
-  if(type == "scatter"){
-    
+  xaxis <- factor(data[, x])
+  n <- levels(factor(data[, col]))
+
+  if (type == "scatter") {
     colors <- rep(
       c("#5E72E3", "#FF595E", "#FFCA3A", "#8AC926", "#FB5607", "#00bbf9"),
-      length.out = length(unique(data[,col]))
+      length.out = length(unique(data[, col]))
     )
-    
+
     # Categories
     pos_x <- round(x = as.numeric(levels(xaxis)), digits = 2)
     idx <- floor(length(pos_x) / 7)
     pos_x[!(seq_along(pos_x) %% idx == 1)] <- NA
-    
+
     category <- list(
       category = data.frame(
         x = as.character(levels(xaxis)),
         label = pos_x
-        )
       )
-    
+    )
+
     category <- na.omit(category$category)
-    
+
     # Dataset
-    df.list <- lapply(1:length(n), function(z){
+    df.list <- lapply(1:length(n), function(z) {
       list(
-        seriesname = n[z], 
+        seriesname = n[z],
         anchorbgcolor = colors[z],
         anchorBorderColor = colors[z],
-        data = data.frame( 
-          x = as.character(data[data[,col] == n[z], x]),
-          y = as.character(data[data[,col] == n[z], y])
+        data = data.frame(
+          x = as.character(data[data[, col] == n[z], x]),
+          y = as.character(data[data[, col] == n[z], y])
         )
       )
     })
-    
-  } else if(type == "boxandwhisker2d"){
-    
+  } else if (type == "boxandwhisker2d") {
     # Categories
     category <- list(
       category = data.frame(
         label = as.character(levels(xaxis))
       )
     )
-    
+
     # Dataset
-    df.list <- lapply(1:length(n), function(i){
-      
-      tmp <- data[data[,col] == n[i],]
-      
-      res <- lapply(1:length(levels(xaxis)), function(j){
-        
-        yaxis <- na.omit(tmp[tmp[,x] == levels(xaxis)[j],y])
+    df.list <- lapply(1:length(n), function(i) {
+      tmp <- data[data[, col] == n[i], ]
+
+      res <- lapply(1:length(levels(xaxis)), function(j) {
+        yaxis <- na.omit(tmp[tmp[, x] == levels(xaxis)[j], y])
         stats <- boxplot.stats(yaxis)
-        
-        if(length(stats$out) >= 1){
+
+        if (length(stats$out) >= 1) {
           list(
-            value = toString(yaxis[! yaxis %in% unique(stats$out)]),
+            value = toString(yaxis[!yaxis %in% unique(stats$out)]),
             outliers = toString(unique(stats$out))
           )
         } else {
@@ -96,62 +90,56 @@ fusionMultiPlot <- function(data, x, y, col, type = "msstepline", numberSuffix =
             value = toString(yaxis)
           )
         }
-        
       })
-      
+
       list(
-        seriesname = n[i], 
+        seriesname = n[i],
         data = res
       )
-      
     })
-    
-    
   } else {
-    
     # Categories
     category <- list(
       category = data.frame(
         label = as.character(levels(xaxis))
-        )
       )
-    
+    )
+
     # Dataset
-    df.list <- lapply(1:length(n), function(z){
+    df.list <- lapply(1:length(n), function(z) {
       list(
-        seriesname = n[z], 
-        data = data.frame( 
-          value = as.character(data[data[,col] == n[z],y])
+        seriesname = n[z],
+        data = data.frame(
+          value = as.character(data[data[, col] == n[z], y])
         )
       )
     })
-    
   }
-  
+
   categories <- toJSON(x = category, pretty = TRUE)
   dataset <- toJSON(x = df.list, pretty = TRUE, auto_unbox = TRUE)
-  
 
-#' @examples
-#' library(fusionchartsR)
-#'
-#' # Multiple charts
-#' new.data <- data.frame(
-#' label = rep(x = c(2012:2016), times = 2),
-#' seriesname = c(rep("iOS App Store", 5), rep("Google Play Store", 5)),
-#' values = c(1:10)
-#' )
-#'
-#' new.data %>%
-#' fusionMultiPlot(
-#' x = "label",
-#' y = "values",
-#' col = "seriesname",
-#' type = "mscolumn2d",
-#' ) %>%
-#' fusionTheme(theme = "fusion")
-#'
-  
+
+  #' @examples
+  #' library(fusionchartsR)
+  #'
+  #' # Multiple charts
+  #' new.data <- data.frame(
+  #' label = rep(x = c(2012:2016), times = 2),
+  #' seriesname = c(rep("iOS App Store", 5), rep("Google Play Store", 5)),
+  #' values = c(1:10)
+  #' )
+  #'
+  #' new.data %>%
+  #' fusionMultiPlot(
+  #' x = "label",
+  #' y = "values",
+  #' col = "seriesname",
+  #' type = "mscolumn2d",
+  #' ) %>%
+  #' fusionTheme(theme = "fusion")
+  #'
+
   # forward options using x
   x <- list(
     key_license = license,
@@ -164,11 +152,11 @@ fusionMultiPlot <- function(data, x, y, col, type = "msstepline", numberSuffix =
 
   # create widget
   widgets <- htmlwidgets::createWidget(
-    name = 'fusionMultiPlot',
+    name = "fusionMultiPlot",
     x = x,
-    package = 'fusionchartsR'
+    package = "fusionchartsR"
   )
-  
+
   widgets %>%
     fusionCaption() %>%
     fusionSubcaption() %>%
@@ -205,13 +193,15 @@ fusionMultiPlot <- function(data, x, y, col, type = "msstepline", numberSuffix =
 #' @name fusionMultiPlot-shiny
 #'
 #' @export
-fusionMultiPlotOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'fusionMultiPlot', width, height, package = 'fusionchartsR')
+fusionMultiPlotOutput <- function(outputId, width = "100%", height = "400px") {
+  htmlwidgets::shinyWidgetOutput(outputId, "fusionMultiPlot", width, height, package = "fusionchartsR")
 }
 
 #' @rdname fusionMultiPlot-shiny
 #' @export
 renderFusionMultiPlot <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
+  if (!quoted) {
+    expr <- substitute(expr)
+  } # force quoted
   htmlwidgets::shinyRenderWidget(expr, fusionMultiPlotOutput, env, quoted = TRUE)
 }

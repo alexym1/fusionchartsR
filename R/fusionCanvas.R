@@ -20,39 +20,36 @@
 #' @param showCanvasBase Show the canvas base
 #' @param canvasBaseDepth Set the height of the canvas base
 #' @param canvasBaseColor Specify the hex code of the base color
-#' 
+#'
 #' @examples
 #' library(fusionchartsR)
-#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
+#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
 #' df %>%
-#' fusionPlot(x = "label", y = "value", type = "column2d") %>%
-#' fusionCanvas(showCanvasBorder = TRUE, canvasBorderThickness = "4", canvasBorderAlpha = "80") %>%
-#' fusionTheme(theme = "fusion")
+#'   fusionPlot(x = "label", y = "value", type = "column2d") %>%
+#'   fusionCanvas(showCanvasBorder = TRUE, canvasBorderThickness = "4", canvasBorderAlpha = "80") %>%
+#'   fusionTheme(theme = "fusion")
 #'
 #' @export
 fusionCanvas <- function(fusionPlot, showCanvasBg = FALSE, canvasbgColorFirst = "#5a5a5a", canvasbgColorSecond = NULL,
                          canvasBgDepth = "0", canvasbgAlpha = "100", canvasBgRatioStart = "40", canvasBgRatioEnd = "60", canvasBgAngle = "0",
-                         showCanvasBorder = FALSE, canvasBorderColor = "#666666", canvasBorderAlpha = "80", 
-                         canvasBorderThickness = "1", showCanvasBase = FALSE, canvasBaseDepth = "5", canvasBaseColor = "#aaaaaa"){
+                         showCanvasBorder = FALSE, canvasBorderColor = "#666666", canvasBorderAlpha = "80",
+                         canvasBorderThickness = "1", showCanvasBase = FALSE, canvasBaseDepth = "5", canvasBaseColor = "#aaaaaa") {
   CanvasAttrs <- list()
   CanvasAttrs$showCanvasBg <- as.numeric(showCanvasBg)
-  
-  if(!is.null(canvasbgColorFirst) & is.null(canvasbgColorSecond)){
+
+  if (!is.null(canvasbgColorFirst) & is.null(canvasbgColorSecond)) {
     CanvasAttrs$canvasbgColor <- canvasbgColorFirst
-  }
-  else if(is.null(canvasbgColorFirst) & !is.null(canvasbgColorSecond)){
+  } else if (is.null(canvasbgColorFirst) & !is.null(canvasbgColorSecond)) {
     CanvasAttrs$canvasbgColor <- canvasbgColorSecond
-  }
-  else if(is.null(canvasbgColorFirst) & is.null(canvasbgColorSecond)){
+  } else if (is.null(canvasbgColorFirst) & is.null(canvasbgColorSecond)) {
     CanvasAttrs$canvasbgColor <- "#ffffff"
-  }
-  else {
+  } else {
     CanvasAttrs$canvasbgColor <- paste0(canvasbgColorFirst, ",", canvasbgColorSecond)
   }
-  
+
   CanvasAttrs$canvasBgDepth <- canvasBgDepth
   CanvasAttrs$canvasbgAlpha <- canvasbgAlpha
-  CanvasAttrs$canvasBgRatio <- paste0(canvasBgRatioStart,",", canvasBgRatioEnd)
+  CanvasAttrs$canvasBgRatio <- paste0(canvasBgRatioStart, ",", canvasBgRatioEnd)
   CanvasAttrs$canvasBgAngle <- canvasBgAngle
   CanvasAttrs$showCanvasBorder <- as.numeric(showCanvasBorder)
   CanvasAttrs$canvasBorderColor <- canvasBorderColor
@@ -61,8 +58,8 @@ fusionCanvas <- function(fusionPlot, showCanvasBg = FALSE, canvasbgColorFirst = 
   CanvasAttrs$showCanvasBase <- as.numeric(showCanvasBase)
   CanvasAttrs$canvasBaseDepth <- canvasBaseDepth
   CanvasAttrs$canvasBaseColor <- canvasBaseColor
-  
-  
+
+
   fusionPlot$x$showCanvasBg <- CanvasAttrs$showCanvasBg
   fusionPlot$x$canvasbgColor <- CanvasAttrs$canvasbgColor
   fusionPlot$x$canvasBgDepth <- CanvasAttrs$canvasBgDepth
@@ -76,8 +73,7 @@ fusionCanvas <- function(fusionPlot, showCanvasBg = FALSE, canvasbgColorFirst = 
   fusionPlot$x$showCanvasBase <- CanvasAttrs$showCanvasBase
   fusionPlot$x$canvasBaseDepth <- CanvasAttrs$canvasBaseDepth
   fusionPlot$x$canvasBaseColor <- CanvasAttrs$canvasBaseColor
-  
-  
-  return(fusionPlot)
 
+
+  return(fusionPlot)
 }

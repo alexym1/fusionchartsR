@@ -1,4 +1,4 @@
-#' Adding FusionCharts anchors 
+#' Adding FusionCharts anchors
 #'
 #' \url{https://www.fusioncharts.com/dev/chart-guide/chart-configurations/anchors-and-lines}
 #'
@@ -16,17 +16,17 @@
 #' @param anchorBgAlpha Set the transparency of the anchor background
 #' @param anchorImageAlpha Set the transparency of the image
 #' @param anchorImageScale Set the scale of the image
-#' 
+#'
 #' @examples
 #' library(fusionchartsR)
-#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
+#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
 #' df %>%
-#' fusionPlot(x = "label", y = "value", type = "line") %>%
-#' fusionAnchors(anchorRadius = "6", anchorBorderThickness = "2") %>%
-#' fusionTheme(theme = "fusion")
+#'   fusionPlot(x = "label", y = "value", type = "line") %>%
+#'   fusionAnchors(anchorRadius = "6", anchorBorderThickness = "2") %>%
+#'   fusionTheme(theme = "fusion")
 #'
 #' @export
-fusionAnchors <- function(fusionPlot, drawAnchors = TRUE, showvalues = FALSE, anchorSides =  "0", anchorRadius = "3", anchorAlpha = "100", anchorBorderThickness = "1", 
+fusionAnchors <- function(fusionPlot, drawAnchors = TRUE, showvalues = FALSE, anchorSides = "0", anchorRadius = "3", anchorAlpha = "100", anchorBorderThickness = "1",
                           anchorBorderColor = "#5a5a5a", anchorBgColor = "#ffffff", anchorBgAlpha = "100", anchorImageAlpha = "100", anchorImageScale = "150") {
   AnchorsAttrs <- list()
   AnchorsAttrs$drawAnchors <- as.numeric(drawAnchors)
@@ -40,7 +40,7 @@ fusionAnchors <- function(fusionPlot, drawAnchors = TRUE, showvalues = FALSE, an
   AnchorsAttrs$anchorBgAlpha <- anchorBgAlpha
   AnchorsAttrs$anchorImageAlpha <- anchorImageAlpha
   AnchorsAttrs$anchorImageScale <- anchorImageScale
-  
+
   fusionPlot$x$drawAnchors <- AnchorsAttrs$drawAnchors
   fusionPlot$x$showvalues <- AnchorsAttrs$showvalues
   fusionPlot$x$anchorSides <- AnchorsAttrs$anchorSides
@@ -52,7 +52,6 @@ fusionAnchors <- function(fusionPlot, drawAnchors = TRUE, showvalues = FALSE, an
   fusionPlot$x$anchorBgAlpha <- AnchorsAttrs$anchorBgAlpha
   fusionPlot$x$anchorImageAlpha <- AnchorsAttrs$anchorImageAlpha
   fusionPlot$x$anchorImageScale <- AnchorsAttrs$anchorImageScale
-  
+
   return(fusionPlot)
 }
-
