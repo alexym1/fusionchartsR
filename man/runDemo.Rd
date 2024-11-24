@@ -10,10 +10,10 @@ runDemo()
 Running Shiny App
 }
 \examples{
-if(interactive()){
-library(shiny)
-library(fusionchartsR)
-runDemo()
+if (interactive()) {
+  library(shiny)
+  library(fusionchartsR)
+  runDemo()
 }
 
 }

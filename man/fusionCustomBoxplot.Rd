@@ -56,7 +56,7 @@ Customing "boxandwhisker2d" chart
 \examples{
 library(fusionchartsR)
 mtcars \%>\%
-fusionPlot(x = "cyl", y = "mpg", type = "boxandwhisker2d") \%>\%
-fusionCustomBoxplot(drawmeanconnector = TRUE)
+  fusionPlot(x = "cyl", y = "mpg", type = "boxandwhisker2d") \%>\%
+  fusionCustomBoxplot(drawmeanconnector = TRUE)
 
 }

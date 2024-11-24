@@ -72,15 +72,15 @@ fusionDiv(
 \item{alternateVGridAlpha}{Set the transparency of the vertical grid}
 }
 \description{
-\url{https://www.fusioncharts.com/dev/chart-guide/chart-configurations/div-lines-and-grids} & 
+\url{https://www.fusioncharts.com/dev/chart-guide/chart-configurations/div-lines-and-grids} &
 \url{https://www.fusioncharts.com/dev/chart-guide/chart-configurations/vertical-div-lines}
 }
 \examples{
 library(fusionchartsR)
-df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
+df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
 df \%>\%
-fusionPlot(x = "label", y = "value", type = "column2d") \%>\%
-fusionDiv(divLineColor = "#6699cc", divLineAlpha = "60", divLineDashed = TRUE) \%>\%
-fusionTheme(theme = "fusion")
+  fusionPlot(x = "label", y = "value", type = "column2d") \%>\%
+  fusionDiv(divLineColor = "#6699cc", divLineAlpha = "60", divLineDashed = TRUE) \%>\%
+  fusionTheme(theme = "fusion")
 
 }

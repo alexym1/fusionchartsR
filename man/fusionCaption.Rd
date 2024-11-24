@@ -39,14 +39,14 @@ fusionCaption(
 library(fusionchartsR)
 
 mtcars \%>\%
-fusionPlot(
-x = "cyl", 
-y = "mpg", 
-type = "boxandwhisker2d"
-) \%>\%
-fusionCaption(caption = "Caption on the left", captionAlignment = "left") \%>\%
-fusionSubcaption(subcaption = "subcaption too") \%>\%
-fusionPalette(palettecolors = c("#5D62B5", "#979AD0")) \%>\%
-fusionTheme(theme = "fusion") 
+  fusionPlot(
+    x = "cyl",
+    y = "mpg",
+    type = "boxandwhisker2d"
+  ) \%>\%
+  fusionCaption(caption = "Caption on the left", captionAlignment = "left") \%>\%
+  fusionSubcaption(subcaption = "subcaption too") \%>\%
+  fusionPalette(palettecolors = c("#5D62B5", "#979AD0")) \%>\%
+  fusionTheme(theme = "fusion")
 
 }

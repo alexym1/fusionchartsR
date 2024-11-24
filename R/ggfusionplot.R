@@ -77,12 +77,26 @@ ggfusionplot <- function(object) {
   } else {
     background <- "#ebebeb"
   }
-
+  
+  if ("legend.position" %in% names(object$theme)) {
+    legend_position <- object$theme$legend.position
+    if(legend_position == "none") {
+      showLegend <- FALSE
+      legendPosition <- "right"
+    } else {
+      showLegend = TRUE
+      legendPosition <- legend_position
+    }
+  } else {
+    showLegend = TRUE
+    legendPosition <- "right"
+  }
 
   res_plot <- fusionPlot(data = data, type = type, x = x[length(x)], y = y) %>%
     fusionCaption(caption = caption) %>%
     fusionSubcaption(subcaption = subcaption) %>%
     fusionAxis(xAxisName = xAxisName, yAxisName = yAxisName) %>%
+    fusionCustomAxis(yAxisMinValue = round(min(data[,y])), yAxisMaxValue = round(max(data[,y])) + 1) %>%
     fusionAnchors(
       anchorBgColor = colour,
       anchorBorderColor = colour,
@@ -91,7 +105,8 @@ ggfusionplot <- function(object) {
     fusionPalette(plotBorderColor = colour) %>%
     fusionDiv(vDivLineColor = "#F2F2F2", divLineColor = "#5a5a5a") %>%
     fusionBackground(bgColorStart = background) %>%
-    fusionCustomBoxplot(lowerboxcolor = fill[1], upperboxcolor = fill[length(fill)])
+    fusionCustomBoxplot(lowerboxcolor = fill[1], upperboxcolor = fill[length(fill)]) %>%
+    fusionLegend(legendPosition = legendPosition, showLegend = showLegend)
 
   return(res_plot)
 }

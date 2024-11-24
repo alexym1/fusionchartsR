@@ -18,6 +18,6 @@ library(ggplot2)
 
 object <- ggplot(data = mtcars, aes(x = wt, y = mpg)) +
   geom_point()
- 
+
 ggfusionplot(object)
 }
