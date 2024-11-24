@@ -8,6 +8,8 @@ fusionCustomBoxplot(
   fusionPlot,
   showmean = TRUE,
   drawmeanconnector = FALSE,
+  lowerboxcolor = "#29C3BE",
+  upperboxcolor = "#5D62B5",
   mediancolor = "#FFFFFF",
   meaniconshape = "polygon",
   meaniconsides = "2",
@@ -25,6 +27,10 @@ fusionCustomBoxplot(
 \item{showmean}{Show means}
 
 \item{drawmeanconnector}{Connect all means}
+
+\item{lowerboxcolor}{Set the color of the lower box}
+
+\item{upperboxcolor}{Set the color of the upper box}
 
 \item{mediancolor}{Set the color of the median line}
 

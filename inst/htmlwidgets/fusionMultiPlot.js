@@ -31,6 +31,8 @@ HTMLWidgets.widget({
                 // fusionCustomBoxplot()
                 "showmean": x.showmean,
                 "drawmeanconnector": x.drawmeanconnector,
+                "lowerboxcolor": x.lowerboxcolor,
+                "upperboxcolor": x.upperboxcolor,
                 "mediancolor": x.mediancolor,
                 "meaniconshape": x.meaniconshape,
                 "meaniconsides": x.meaniconsides,
