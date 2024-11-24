@@ -9,6 +9,7 @@ fusionCustomAxis(
   showlabels = TRUE,
   xAxisPosition = c("bottom", "top", "left", "right"),
   yAxisPosition = c("left", "right", "top", "bottom"),
+  yAxisMinValue = NULL,
   yAxisMaxValue = NULL,
   AxisNameBorderColor = NULL,
   AxisNameBorderAlpha = "0",
@@ -47,6 +48,8 @@ fusionCustomAxis(
 \item{xAxisPosition}{change the position of the x-axis}
 
 \item{yAxisPosition}{change the position of the y-axis}
+
+\item{yAxisMinValue}{Set the lower limit of the x-axis}
 
 \item{yAxisMaxValue}{Set the upper limit of the y-axis}
 

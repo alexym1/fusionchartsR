@@ -130,6 +130,7 @@ HTMLWidgets.widget({
                 "xAxisValueBorderDashGap": x.xAxisValueBorderDashGap,
                 
                 "yAxisPosition": x.yAxisPosition,
+                "yAxisMinValue": x.yAxisMinValue,
                 "yAxisMaxValue": x.yAxisMaxValue,
                 "yAxisNameBorderColor": x.yAxisNameBorderColor,
                 "yAxisNameBorderAlpha": x.yAxisNameBorderAlpha,
