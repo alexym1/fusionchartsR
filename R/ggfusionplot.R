@@ -4,6 +4,9 @@
 #'
 #' @param object a ggplot object
 #'
+#' @import ggplot2
+#' @importFrom scales hue_pal
+#'
 #' @examples
 #' library(fusionchartsR)
 #' library(ggplot2)
@@ -15,65 +18,68 @@
 #' @export
 ggfusionplot <- function(object) {
   data <- object$data
-  
-  type <- switch(as.character(object$layers[[1]]$constructor[[1]]),
-                 "geom_point" = "scatter",
-                 "geom_line" = "line",
-                 "geom_boxplot" = "boxandwhisker2d",
-                 "geom_col" = "column2d"
-  )
-  
-  x <- as.character(object[["mapping"]][["x"]][[2]])
-  y <- as.character(object[["mapping"]][["y"]][[2]])
-  
+  x <- as.character(object$mapping$x[2])
+  y <- as.character(object$mapping$y[2])
+
   if ("title" %in% names(object$labels)) {
     caption <- object$labels$title
   } else {
     caption <- NULL
   }
-  
+
   if ("subtitle" %in% names(object$labels)) {
     subcaption <- object$labels$subtitle
   } else {
     subcaption <- NULL
   }
-  
+
   xAxisName <- object$labels$x
   yAxisName <- object$labels$y
-  
+
   colors <- c("red", "blue", "green", "yellow", "pink", "black", "white", "orange")
-  
-  if ("colour" %in% names(object$labels)) {
-    if (object$mapping$colour %in% colors) {
-      colour <- col2hex(object$mapping$colour)
-    } else {
-      colour <- object$mapping$colour
-    }
-  } else {
-    colour <- "#000"
-  }
-  
-  fill <- tryCatch({
-    if ("fill" %in% names(object$labels)) {
-      if (object$mapping$fill %in% colors) {
-        col2hex(object$mapping$fill)
+
+  colour <- tryCatch(
+    {
+      if ("colour" %in% names(object$labels)) {
+        if (object$mapping$colour %in% colors) {
+          col2hex(object$mapping$colour)
+        } else {
+          object$mapping$colour
+        }
       } else {
-        object$mapping$fill
+        "#000"
       }
-    } else {
-      c("#29C3BE", "#5D62B5")
+    },
+    error = function(e) {
+      var_col <- data[, as.character(object$mapping$colour[[2]])]
+      hue_pal()(length(unique(var_col)))
     }
-  }, error = function(e) {
-    var_fill <- data[,as.character(object$mapping$fill[[2]])]
-    hue_pal()(length(unique(var_fill)))
-  })
-  
+  )
+
+  fill <- tryCatch(
+    {
+      if ("fill" %in% names(object$labels)) {
+        if (object$mapping$fill %in% colors) {
+          col2hex(object$mapping$fill)
+        } else {
+          object$mapping$fill
+        }
+      } else {
+        c("#29C3BE", "#5D62B5")
+      }
+    },
+    error = function(e) {
+      var_fill <- data[, as.character(object$mapping$fill[[2]])]
+      hue_pal()(length(unique(var_fill)))
+    }
+  )
+
   if ("size" %in% names(object$labels)) {
     size <- object$labels$size
   } else {
     size <- 0.2
   }
-  
+
   if ("background" %in% names(object$labels)) {
     if (object$labels$background$fill %in% colors) {
       background <- col2hex(object$labels$background$fill)
@@ -83,10 +89,10 @@ ggfusionplot <- function(object) {
   } else {
     background <- "#ebebeb"
   }
-  
+
   if ("legend.position" %in% names(object$theme)) {
     legend_position <- object$theme$legend.position
-    if(legend_position == "none") {
+    if (legend_position == "none") {
       showLegend <- FALSE
       legendPosition <- "right"
     } else {
@@ -97,14 +103,42 @@ ggfusionplot <- function(object) {
     showLegend <- TRUE
     legendPosition <- "right"
   }
-  
-  res_plot <- fusionPlot(data = data, type = type, x = x[length(x)], y = y) %>%
+
+  if (any(c("fill", "colour") %in% names(object$mapping))) {
+    type <- switch(as.character(object$layers[[1]]$constructor[[1]]),
+      "geom_point" = "scatter",
+      "geom_line" = "msline",
+      "geom_boxplot" = "boxandwhisker2d",
+      "geom_col" = "stackedcolumn2d",
+      "geom_bar" = "stackedcolumn2d"
+    )
+
+    if (type == "stackedcolumn2d" & "position" %in% names(object$layers[[1]]$constructor)) {
+      type <- "mscolumn2d"
+    }
+
+    legendCaption <- as.character(object$mapping$fill[2])
+    fusionplot <- fusionMultiPlot(data = data, x = x[length(x)], y = y, col = legendCaption, type = type)
+  } else {
+    type <- switch(as.character(object$layers[[1]]$constructor[[1]]),
+      "geom_point" = "scatter",
+      "geom_line" = "line",
+      "geom_boxplot" = "boxandwhisker2d",
+      "geom_col" = "stackedcolumn2d",
+      "geom_bar" = "stackedcolumn2d"
+    )
+
+    legendCaption <- ""
+    fusionplot <- fusionPlot(data = data, x = x[length(x)], y = y, type = type)
+  }
+
+  fusion_plot <- fusionplot %>%
     fusionCaption(caption = caption) %>%
     fusionSubcaption(subcaption = subcaption) %>%
     fusionAxis(xAxisName = xAxisName, yAxisName = yAxisName) %>%
     fusionCustomAxis(
-      yAxisMinValue = round(min(data[,y])), 
-      yAxisMaxValue = round(max(data[,y])) + 1
+      yAxisMinValue = round(min(data[, y])),
+      yAxisMaxValue = round(max(data[, y])) + 1
     ) %>%
     fusionAnchors(
       anchorBgColor = colour,
@@ -115,9 +149,14 @@ ggfusionplot <- function(object) {
     fusionDiv(vDivLineColor = "#F2F2F2", divLineColor = "#5a5a5a") %>%
     fusionBackground(bgColorStart = background) %>%
     fusionCustomBoxplot(lowerboxcolor = fill[1], upperboxcolor = fill[length(fill)]) %>%
-    fusionLegend(legendPosition = legendPosition, showLegend = showLegend)
-  
-  return(res_plot)
+    fusionLegend(
+      legendCaption = legendCaption,
+      legendPosition = legendPosition,
+      showLegend = showLegend
+    ) %>%
+    fusionCustomLegend(legendIconSides = "4")
+
+  return(fusion_plot)
 }
 
 col2hex <- function(col) {
