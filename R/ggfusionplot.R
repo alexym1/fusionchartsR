@@ -65,7 +65,7 @@ ggfusionPlot <- function(object) {
           object$mapping$fill
         }
       } else {
-        c("#29C3BE", "#5D62B5")
+        "#000"
       }
     },
     error = function(e) {
@@ -104,7 +104,7 @@ ggfusionPlot <- function(object) {
     legendPosition <- "right"
   }
 
-  if (any(c("fill", "colour") %in% names(object$mapping))) {
+  if (any(c("fill", "col", "colour") %in% names(object$mapping))) {
     type <- switch(as.character(object$layers[[1]]$constructor[[1]]),
       "geom_point" = "scatter",
       "geom_line" = "msline",
@@ -116,16 +116,21 @@ ggfusionPlot <- function(object) {
     if (type == "stackedcolumn2d" & "position" %in% names(object$layers[[1]]$constructor)) {
       type <- "mscolumn2d"
     }
+    
+    for (i in c("fill", "col", "colour")) {
+      if (i %in% names(object$mapping)[3:length(object$mapping)]) {
+        legendCaption <- as.character(object$mapping[[i]][2])
+      }
+    }
 
-    legendCaption <- as.character(object$mapping$fill[2])
     fusionplot <- fusionMultiPlot(data = data, x = x[length(x)], y = y, col = legendCaption, type = type)
   } else {
     type <- switch(as.character(object$layers[[1]]$constructor[[1]]),
       "geom_point" = "scatter",
       "geom_line" = "line",
       "geom_boxplot" = "boxandwhisker2d",
-      "geom_col" = "stackedcolumn2d",
-      "geom_bar" = "stackedcolumn2d"
+      "geom_col" = "column2d",
+      "geom_bar" = "column2d"
     )
 
     legendCaption <- ""
