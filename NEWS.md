@@ -1,7 +1,7 @@
 # fusionchartsR 1.1.0
 
 * Refresh the logo
-* Add `ggfusionplot` to convert `ggplot2` object to `fusionchartsR` object.
+* Add `ggfusionPlot` to convert `ggplot2` object to `fusionchartsR` object.
 * `fusionchartsR` has been restyled using `styler`.
 
 # fusionchartsR 1.0.0

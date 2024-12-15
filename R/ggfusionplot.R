@@ -14,9 +14,9 @@
 #' object <- ggplot(data = mtcars, aes(x = wt, y = mpg)) +
 #'   geom_point()
 #'
-#' ggfusionplot(object)
+#' ggfusionPlot(object)
 #' @export
-ggfusionplot <- function(object) {
+ggfusionPlot <- function(object) {
   data <- object$data
   x <- as.character(object$mapping$x[2])
   y <- as.character(object$mapping$y[2])
