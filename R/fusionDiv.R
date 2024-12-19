@@ -1,7 +1,7 @@
 #' Adding FusionCharts Div & Grid
 #'
-#' \url{https://www.fusioncharts.com/dev/chart-guide/chart-configurations/div-lines-and-grids} & 
-#' \url{https://www.fusioncharts.com/dev/chart-guide/chart-configurations/vertical-div-lines}  
+#' \url{https://www.fusioncharts.com/dev/chart-guide/chart-configurations/div-lines-and-grids} &
+#' \url{https://www.fusioncharts.com/dev/chart-guide/chart-configurations/vertical-div-lines}
 #'
 #' @import htmlwidgets
 #'
@@ -22,18 +22,18 @@
 #' @param vDivLineDashGap Set the gap between the dashed vertical lines
 #' @param showAlternateHGridColor Display the horizontal grid bands
 #' @param alternateHGridColor Specify the hex code for the color of the horizontal grid
-#' @param alternateHGridAlpha Set the transparency of the horizontal grid 
+#' @param alternateHGridAlpha Set the transparency of the horizontal grid
 #' @param showAlternateVGridColor Display the vertical grid bands
 #' @param alternateVGridColor Specify the hex code for the color of the vertical grid
 #' @param alternateVGridAlpha Set the transparency of the vertical grid
-#' 
+#'
 #' @examples
 #' library(fusionchartsR)
-#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
+#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
 #' df %>%
-#' fusionPlot(x = "label", y = "value", type = "column2d") %>%
-#' fusionDiv(divLineColor = "#6699cc", divLineAlpha = "60", divLineDashed = TRUE) %>%
-#' fusionTheme(theme = "fusion")
+#'   fusionPlot(x = "label", y = "value", type = "column2d") %>%
+#'   fusionDiv(divLineColor = "#6699cc", divLineAlpha = "60", divLineDashed = TRUE) %>%
+#'   fusionTheme(theme = "fusion")
 #'
 #' @export
 fusionDiv <- function(fusionPlot, adjustDiv = FALSE, numDivLines = "5", divLineColor = "#5a5a5a", divLineAlpha = "10", divLineDashed = FALSE,
@@ -62,7 +62,7 @@ fusionDiv <- function(fusionPlot, adjustDiv = FALSE, numDivLines = "5", divLineC
   DivAttrs$showAlternateVGridColor <- as.numeric(showAlternateVGridColor)
   DivAttrs$alternateVGridColor <- alternateVGridColor
   DivAttrs$alternateVGridAlpha <- alternateVGridAlpha
-  
+
   fusionPlot$x$adjustDiv <- DivAttrs$adjustDiv
   fusionPlot$x$numDivLines <- DivAttrs$numDivLines
   fusionPlot$x$divLineColor <- DivAttrs$divLineColor
@@ -83,7 +83,6 @@ fusionDiv <- function(fusionPlot, adjustDiv = FALSE, numDivLines = "5", divLineC
   fusionPlot$x$showAlternateVGridColor <- DivAttrs$showAlternateVGridColor
   fusionPlot$x$alternateVGridColor <- DivAttrs$alternateVGridColor
   fusionPlot$x$alternateVGridAlpha <- DivAttrs$alternateVGridAlpha
-  
-  return(fusionPlot)
 
+  return(fusionPlot)
 }

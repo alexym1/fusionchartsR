@@ -19,10 +19,9 @@ fusionTheme(
 }
 \examples{
 library(fusionchartsR)
-df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
+df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
 df \%>\%
-fusionPlot(x = "label", y = "value", type = "pie2d") \%>\%
-fusionTheme(theme = "gammel")
-
+  fusionPlot(x = "label", y = "value", type = "pie2d") \%>\%
+  fusionTheme(theme = "gammel")
 
 }

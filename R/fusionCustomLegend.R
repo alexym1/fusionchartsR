@@ -1,5 +1,5 @@
 #' Customing FusionCharts legend
-#' 
+#'
 #' \url{https://www.fusioncharts.com/dev/chart-guide/chart-configurations/legend}
 #'
 #' @import htmlwidgets
@@ -30,39 +30,37 @@
 #' @param legendItemFontColor Specify the legend item font color
 #' @param legendItemHover Enable hover effect to legend item
 #' @param legendItemHoverFontColor Specify the legend item font color on hover
-#' 
+#'
 #' @examples
 #' library(fusionchartsR)
-#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
+#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
 #' df %>%
-#' fusionPlot(x = "label", y = "value", type = "doughnut2d") %>%
-#' fusionCustomLegend(plotHighlightEffect = TRUE) %>%
-#' fusionTheme(theme = "fusion")
+#'   fusionPlot(x = "label", y = "value", type = "doughnut2d") %>%
+#'   fusionCustomLegend(plotHighlightEffect = TRUE) %>%
+#'   fusionTheme(theme = "fusion")
 #'
 #' @export
 fusionCustomLegend <- function(fusionPlot, plotHighlightEffect = FALSE, plotHighlightEffectColor = "#7f7f7f", plotHighlightEffectAlpha = "60",
                                drawCustomLegendIcon = TRUE, legendIconBgColor = NULL, legendIconAlpha = "100", legendIconBgAlpha = "100",
                                legendIconBorderColor = "#123456", legendIconBorderThickness = "0", legendIconSides = "1", legendIconStartAngle = "45",
                                legendScrollBgColor = "#5A5A5A", legendBgColor = "#CCCCCC", legendBgAlpha = "0", legendBorderColor = "#666666",
-                               legendBorderThickness = "0", legendBorderAlpha =  "40", legendCaptionAlignment = c("center", "left", "right"), 
+                               legendBorderThickness = "0", legendBorderAlpha = "40", legendCaptionAlignment = c("center", "left", "right"),
                                legendShadow = FALSE, legendItemFontBold = FALSE, legendItemFont = "Arial", legendItemFontSize = "14",
-                               legendItemFontColor = "#5A5A5A", legendItemHover = FALSE, legendItemHoverFontColor = "#cccccc"){
+                               legendItemFontColor = "#5A5A5A", legendItemHover = FALSE, legendItemHoverFontColor = "#cccccc") {
   CustomLegendAttrs <- list()
-  
-  if(isTRUE(plotHighlightEffect)){
+
+  if (isTRUE(plotHighlightEffect)) {
     plotHighlightEffect <- paste0("fadeout", "|color=", plotHighlightEffectColor, ", alpha=", plotHighlightEffectAlpha)
-  } 
-  else {
+  } else {
     plotHighlightEffect <- ""
   }
-  
+
   CustomLegendAttrs$plotHighlightEffect <- plotHighlightEffect
   CustomLegendAttrs$drawCustomLegendIcon <- as.numeric(drawCustomLegendIcon)
-  
-  if(is.null(legendIconBgColor)){
+
+  if (is.null(legendIconBgColor)) {
     CustomLegendAttrs$legendIconBgColor <- ""
-  }
-  else {
+  } else {
     CustomLegendAttrs$legendIconBgColor <- legendIconBgColor
   }
 
@@ -84,14 +82,13 @@ fusionCustomLegend <- function(fusionPlot, plotHighlightEffect = FALSE, plotHigh
   CustomLegendAttrs$legendItemFont <- legendItemFont
   CustomLegendAttrs$legendItemFontSize <- legendItemFontSize
   CustomLegendAttrs$legendItemFontColor <- legendItemFontColor
-  
-  if(isTRUE(legendItemHover)){
+
+  if (isTRUE(legendItemHover)) {
     CustomLegendAttrs$legendItemHoverFontColor <- legendItemHoverFontColor
-  }
-  else {
+  } else {
     CustomLegendAttrs$legendItemHoverFontColor <- ""
   }
-  
+
   fusionPlot$x$plotHighlightEffect <- CustomLegendAttrs$plotHighlightEffect
   fusionPlot$x$drawCustomLegendIcon <- CustomLegendAttrs$drawCustomLegendIcon
   fusionPlot$x$legendIconBgColor <- CustomLegendAttrs$legendIconBgColor
@@ -114,8 +111,7 @@ fusionCustomLegend <- function(fusionPlot, plotHighlightEffect = FALSE, plotHigh
   fusionPlot$x$legendItemFontSize <- CustomLegendAttrs$legendItemFontSize
   fusionPlot$x$legendItemFontColor <- CustomLegendAttrs$legendItemFontColor
   fusionPlot$x$legendItemHoverFontColor <- CustomLegendAttrs$legendItemHoverFontColor
-  
+
 
   return(fusionPlot)
-  
 }

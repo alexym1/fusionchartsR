@@ -9,6 +9,7 @@ fusionCustomAxis(
   showlabels = TRUE,
   xAxisPosition = c("bottom", "top", "left", "right"),
   yAxisPosition = c("left", "right", "top", "bottom"),
+  yAxisMinValue = NULL,
   yAxisMaxValue = NULL,
   AxisNameBorderColor = NULL,
   AxisNameBorderAlpha = "0",
@@ -47,6 +48,8 @@ fusionCustomAxis(
 \item{xAxisPosition}{change the position of the x-axis}
 
 \item{yAxisPosition}{change the position of the y-axis}
+
+\item{yAxisMinValue}{Set the lower limit of the x-axis}
 
 \item{yAxisMaxValue}{Set the upper limit of the y-axis}
 
@@ -109,11 +112,11 @@ fusionCustomAxis(
 }
 \examples{
 library(fusionchartsR)
-df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
+df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
 df \%>\%
-fusionPlot(x = "label", y = "value", type = "column3d") \%>\%
-fusionAxis(xAxisName = "Countries", yAxisName = "Numbers", AxisNameFontSize = "20") \%>\%
-fusionCustomAxis(xAxisPosition = "top", yAxisPosition = "right") \%>\%
-fusionTheme(theme = "gammel")
+  fusionPlot(x = "label", y = "value", type = "column3d") \%>\%
+  fusionAxis(xAxisName = "Countries", yAxisName = "Numbers", AxisNameFontSize = "20") \%>\%
+  fusionCustomAxis(xAxisPosition = "top", yAxisPosition = "right") \%>\%
+  fusionTheme(theme = "gammel")
 
 }

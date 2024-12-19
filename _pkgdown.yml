@@ -23,6 +23,7 @@ reference:
 - title: Build
   desc:  Build a complete chart with one of its components.
   contents:
+  - ggfusionPlot
   - fusionPlot
   - fusionMultiPlot
   - fusionCaption

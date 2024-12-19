@@ -20,7 +20,7 @@ Main function to make interactive charts.
 Check all charts at \url{https://www.fusioncharts.com/charts}
 }
 \details{
-A 2x2 confusion matrix can be displayed using `type = "confusionMatrix"`.
+A 2x2 confusion matrix can be displayed using \code{type = "confusionMatrix"}.
 }
 \examples{
 library(fusionchartsR)

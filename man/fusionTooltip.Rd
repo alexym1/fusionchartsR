@@ -31,10 +31,10 @@ fusionTooltip(
 }
 \examples{
 library(fusionchartsR)
-df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
+df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
 df \%>\%
-fusionPlot(x = "label", y = "value", type = "doughnut2d") \%>\%
-fusionTooltip(toolTipBgColor = "#3526ad", toolTipBgAlpha = "50",  showToolTipShadow = FALSE) \%>\%
-fusionTheme(theme = "fusion")
+  fusionPlot(x = "label", y = "value", type = "doughnut2d") \%>\%
+  fusionTooltip(toolTipBgColor = "#3526ad", toolTipBgAlpha = "50", showToolTipShadow = FALSE) \%>\%
+  fusionTheme(theme = "fusion")
 
 }

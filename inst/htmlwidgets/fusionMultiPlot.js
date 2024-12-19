@@ -31,6 +31,8 @@ HTMLWidgets.widget({
                 // fusionCustomBoxplot()
                 "showmean": x.showmean,
                 "drawmeanconnector": x.drawmeanconnector,
+                "lowerboxcolor": x.lowerboxcolor,
+                "upperboxcolor": x.upperboxcolor,
                 "mediancolor": x.mediancolor,
                 "meaniconshape": x.meaniconshape,
                 "meaniconsides": x.meaniconsides,
@@ -128,6 +130,7 @@ HTMLWidgets.widget({
                 "xAxisValueBorderDashGap": x.xAxisValueBorderDashGap,
                 
                 "yAxisPosition": x.yAxisPosition,
+                "yAxisMinValue": x.yAxisMinValue,
                 "yAxisMaxValue": x.yAxisMaxValue,
                 "yAxisNameBorderColor": x.yAxisNameBorderColor,
                 "yAxisNameBorderAlpha": x.yAxisNameBorderAlpha,

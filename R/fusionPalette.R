@@ -30,32 +30,31 @@
 #' @param plotBorderHoverDashed Make dashed borders on hover
 #' @param plotBorderHoverDashLen Set the length of each dash for all data plots on hover
 #' @param plotBorderHoverDashGap Set the gap between two consecutive dashes for all data plots on hover(in pixels)
-#' 
+#'
 #' @examples
 #' library(fusionchartsR)
-#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
-#' 
+#' df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
+#'
 #' df %>%
-#' fusionPlot(x = "label", y = "value", type = "pie2d") %>%
-#' fusionPalette(palettecolors = c("5d62b5", "29c3be", "f2726f")) %>%
-#' fusionTheme(theme = "gammel")
+#'   fusionPlot(x = "label", y = "value", type = "pie2d") %>%
+#'   fusionPalette(palettecolors = c("5d62b5", "29c3be", "f2726f")) %>%
+#'   fusionTheme(theme = "gammel")
 #'
 #' @export
 fusionPalette <- function(fusionPlot, palettecolors = NULL, usePlotGradientColor = FALSE, plotGradientColor = "#003366",
-                            plotFillAngle = "0", plotFillRatioStart = "90", plotFillRatioEnd = "100", plotFillAlpha = "100",
-                            showPlotBorder = FALSE, drawFullAreaBorder = FALSE, inheritPlotBorderColor = FALSE,
+                          plotFillAngle = "0", plotFillRatioStart = "90", plotFillRatioEnd = "100", plotFillAlpha = "100",
+                          showPlotBorder = FALSE, drawFullAreaBorder = FALSE, inheritPlotBorderColor = FALSE,
                           plotBorderDashed = FALSE, plotBorderDashLen = "4", plotBorderDashGap = "4", plotBorderThickness = "1",
                           plotBorderColor = "#666666", useRoundEdges = FALSE, plotHoverEffect = FALSE, plotFillHoverColor = "#5D62B5",
                           plotFillHoverAlpha = "100", plotBorderHoverColor = "#000000", plotBorderHoverAlpha = "100", plotBorderHoverThickness = "1",
-                          plotBorderHoverDashed = TRUE, plotBorderHoverDashLen = "6", plotBorderHoverDashGap = "2"){
-  
+                          plotBorderHoverDashed = TRUE, plotBorderHoverDashLen = "6", plotBorderHoverDashGap = "2") {
   PaletteAttrs <- list()
   PaletteAttrs$palettecolors <- palettecolors
   PaletteAttrs$usePlotGradientColor <- as.numeric(usePlotGradientColor)
   PaletteAttrs$plotGradientColor <- plotGradientColor
   PaletteAttrs$plotFillAngle <- plotFillAngle
-  
-  PaletteAttrs$plotFillRatio <- paste0(plotFillRatioStart,",", plotFillRatioEnd)
+
+  PaletteAttrs$plotFillRatio <- paste0(plotFillRatioStart, ",", plotFillRatioEnd)
   PaletteAttrs$plotFillAlpha <- plotFillAlpha
   PaletteAttrs$showPlotBorder <- as.numeric(showPlotBorder)
   PaletteAttrs$drawFullAreaBorder <- as.numeric(drawFullAreaBorder)
@@ -75,8 +74,8 @@ fusionPalette <- function(fusionPlot, palettecolors = NULL, usePlotGradientColor
   PaletteAttrs$plotBorderHoverDashed <- as.numeric(plotBorderHoverDashed)
   PaletteAttrs$plotBorderHoverDashLen <- plotBorderHoverDashLen
   PaletteAttrs$plotBorderHoverDashGap <- plotBorderHoverDashGap
-  
-  
+
+
   fusionPlot$x$palettecolors <- PaletteAttrs$palettecolors
   fusionPlot$x$usePlotGradientColor <- PaletteAttrs$usePlotGradientColor
   fusionPlot$x$plotGradientColor <- PaletteAttrs$plotGradientColor
@@ -101,7 +100,6 @@ fusionPalette <- function(fusionPlot, palettecolors = NULL, usePlotGradientColor
   fusionPlot$x$plotBorderHoverDashed <- PaletteAttrs$plotBorderHoverDashed
   fusionPlot$x$plotBorderHoverDashLen <- PaletteAttrs$plotBorderHoverDashLen
   fusionPlot$x$plotBorderHoverDashGap <- PaletteAttrs$plotBorderHoverDashGap
-  
+
   return(fusionPlot)
 }
-

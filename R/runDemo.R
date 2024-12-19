@@ -7,14 +7,14 @@
 #'
 #'
 #' @examples
-#' if(interactive()){
-#' library(shiny)
-#' library(fusionchartsR)
-#' runDemo()
+#' if (interactive()) {
+#'   library(shiny)
+#'   library(fusionchartsR)
+#'   runDemo()
 #' }
 #'
 #' @export
-runDemo <- function(){
+runDemo <- function() {
   ui <- fluidPage(
     tags$br(),
     sidebarLayout(
@@ -22,8 +22,10 @@ runDemo <- function(){
         selectInput(
           inputId = "input01",
           label = "Select a type chart",
-          choices = c("column2d","column3d", "line", "area2d", "bar2d", "bar3d",
-                      "pie2d", "pie3d", "doughnut2d", "doughnut3d")
+          choices = c(
+            "column2d", "column3d", "line", "area2d", "bar2d", "bar3d",
+            "pie2d", "pie3d", "doughnut2d", "doughnut3d"
+          )
         ),
         textInput(
           inputId = "input02",
@@ -48,7 +50,7 @@ runDemo <- function(){
         selectInput(
           inputId = "input06",
           label = "Choose a theme",
-          choices = c("fusion", "gammel", "candy", "zune", "ocean","carbon", "umber")
+          choices = c("fusion", "gammel", "candy", "zune", "ocean", "carbon", "umber")
         )
       ),
       mainPanel(
@@ -56,10 +58,10 @@ runDemo <- function(){
       )
     )
   )
-  
-  server <- function(input, output){
+
+  server <- function(input, output) {
     output$plot <- renderfusionPlot({
-      df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260,180, 115))
+      df <- data.frame(label = c("Venezuela", "Saudi", "Canada", "Russia"), value = c(290, 260, 180, 115))
       df %>%
         fusionPlot(x = "label", y = "value", type = input$input01) %>%
         fusionCaption(caption = input$input02) %>%
@@ -68,7 +70,6 @@ runDemo <- function(){
         fusionTheme(theme = input$input06)
     })
   }
-  
-  shinyApp(ui = ui, server = server)
 
+  shinyApp(ui = ui, server = server)
 }
