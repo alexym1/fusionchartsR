@@ -15,3 +15,4 @@ LazyData: false
 RoxygenNote: 7.3.2
 Imports: ggplot2, htmlwidgets, jsonlite, magrittr, scales, shiny
 Suggests: rmarkdown, knitr
+Roxygen: list(markdown = TRUE)

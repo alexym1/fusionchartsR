@@ -2,7 +2,7 @@
 % Please edit documentation in R/ggfusionPlot.R
 \name{ggfusionPlot}
 \alias{ggfusionPlot}
-\title{Convert ggplot2 to fusionchartsR}
+\title{Convert a ggplot2 object to a fusionchartsR object.}
 \usage{
 ggfusionPlot(object)
 }
@@ -10,14 +10,20 @@ ggfusionPlot(object)
 \item{object}{a ggplot object}
 }
 \description{
-This function converts a [ggplot2::ggplot()] object to a fusioncharstR object.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \examples{
-library(fusionchartsR)
 library(ggplot2)
+library(fusionchartsR)
 
-object <- ggplot(data = mtcars, aes(x = wt, y = mpg)) +
-  geom_point()
+df <- data.frame(
+  label = rep(x = c(2012:2016), times = 2),
+  seriesname = c(rep("iOS App Store", 5), rep("Google Play Store", 5)),
+  values = c(1:10)
+)
+
+object <- ggplot(df, aes(label, values, fill = seriesname)) +
+  geom_col()
 
 ggfusionPlot(object)
 }

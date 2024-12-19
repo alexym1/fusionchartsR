@@ -1,6 +1,6 @@
-#' Convert ggplot2 to fusionchartsR
+#' Convert a ggplot2 object to a fusionchartsR object.
 #'
-#' This function converts a [ggplot2::ggplot()] object to a fusioncharstR object.
+#' `r lifecycle::badge('experimental')`
 #'
 #' @param object a ggplot object
 #'
@@ -8,11 +8,17 @@
 #' @importFrom scales hue_pal
 #'
 #' @examples
-#' library(fusionchartsR)
 #' library(ggplot2)
+#' library(fusionchartsR)
 #'
-#' object <- ggplot(data = mtcars, aes(x = wt, y = mpg)) +
-#'   geom_point()
+#' df <- data.frame(
+#'   label = rep(x = c(2012:2016), times = 2),
+#'   seriesname = c(rep("iOS App Store", 5), rep("Google Play Store", 5)),
+#'   values = c(1:10)
+#' )
+#'
+#' object <- ggplot(df, aes(label, values, fill = seriesname)) +
+#'   geom_col()
 #'
 #' ggfusionPlot(object)
 #' @export
@@ -116,14 +122,25 @@ ggfusionPlot <- function(object) {
     if (type == "stackedcolumn2d" & "position" %in% names(object$layers[[1]]$constructor)) {
       type <- "mscolumn2d"
     }
-    
+
     for (i in c("fill", "col", "colour")) {
       if (i %in% names(object$mapping)[3:length(object$mapping)]) {
         legendCaption <- as.character(object$mapping[[i]][2])
       }
     }
 
-    fusionplot <- fusionMultiPlot(data = data, x = x[length(x)], y = y, col = legendCaption, type = type)
+    if (x == legendCaption) {
+      type <- switch(as.character(object$layers[[1]]$constructor[[1]]),
+        "geom_point" = "scatter",
+        "geom_line" = "line",
+        "geom_boxplot" = "boxandwhisker2d",
+        "geom_col" = "column2d",
+        "geom_bar" = "column2d"
+      )
+      fusionplot <- fusionPlot(data = data, x = x[length(x)], y = y, type = type)
+    } else {
+      fusionplot <- fusionMultiPlot(data = data, x = x[length(x)], y = y, col = legendCaption, type = type)
+    }
   } else {
     type <- switch(as.character(object$layers[[1]]$constructor[[1]]),
       "geom_point" = "scatter",
