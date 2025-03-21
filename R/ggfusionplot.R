@@ -1,7 +1,5 @@
 #' Convert a ggplot2 object to a fusionchartsR object.
 #'
-#' `r lifecycle::badge('experimental')`
-#'
 #' @param object a ggplot object
 #'
 #' @import ggplot2

@@ -1,3 +1,7 @@
+# fusionchartsR 1.1.1
+
+* pkgdown website returns the website as expected. (#5)
+
 # fusionchartsR 1.1.0
 
 * Refresh the logo
