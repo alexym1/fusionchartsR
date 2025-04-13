@@ -1,3 +1,8 @@
+# fusionchartsR 1.1.1
+
+* Remove `docs` folder to avoid confusion with pkgdown
+
+
 # fusionchartsR 1.1.0
 
 * Refresh the logo
