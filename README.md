@@ -5,8 +5,9 @@
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/fusionchartsR)](https://cran.r-project.org/package=fusionchartsR)
 [![](https://cranlogs.r-pkg.org/badges/fusionchartsR)](https://cran.r-project.org/package=fusionchartsR)
-![](https://img.shields.io/badge/github%20version-1.1.1-green.svg) \> R
-interface to FusionCharts
+![](https://img.shields.io/badge/github%20version-1.1.1-green.svg) 
+
+> R interface to FusionCharts
 
 ## fusionchartsR
 
