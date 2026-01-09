@@ -6,7 +6,8 @@
 \usage{
 fusionTheme(
   fusionPlot,
-  theme = c("fusion", "gammel", "candy", "zune", "ocean", "carbon", "umber")
+  theme = c("fusion", "gammel", "candy", "zune", "ocean", "carbon", "umber", "fint",
+    "accessibility")
 )
 }
 \arguments{

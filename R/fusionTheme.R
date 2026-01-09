@@ -16,7 +16,7 @@
 #'   fusionTheme(theme = "gammel")
 #'
 #' @export
-fusionTheme <- function(fusionPlot, theme = c("fusion", "gammel", "candy", "zune", "ocean", "carbon", "umber")) {
+fusionTheme <- function(fusionPlot, theme = c("fusion", "gammel", "candy", "zune", "ocean", "carbon", "umber", "fint", "accessibility")) {
   ThemeAttrs <- list()
   ThemeAttrs$theme <- match.arg(theme)
   fusionPlot$x$theme <- ThemeAttrs$theme
