@@ -2,7 +2,7 @@
 
 * Add `fusionGrid` to render interactive table
 * Upgrade version of FusionCharts Suite XT to 4.2.0 including new themes like `fint` and `access`
-
+* Refresh shinyApp (#11)
 
 # fusionchartsR 1.1.1
 
