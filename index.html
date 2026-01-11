@@ -6,12 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Embedding fusioncharts.js in R • fusionchartsR</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" sizes="any" href="favicon.ico">
+<link rel="manifest" href="site.webmanifest">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -29,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">fusionchartsR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +42,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-news" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">News</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-news">
 <li><h6 class="dropdown-header" data-toc-skip>Releases</h6></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Version 1.1.1</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Version 1.2.0</h6></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="news/index.html">Changelog</a></li>
   </ul>
@@ -67,7 +66,7 @@
 <a class="anchor" aria-label="anchor" href="#fusionchartsr-"></a>
 </h1>
 </div>
-<p><a href="https://cran.r-project.org/package=fusionchartsR" class="external-link"><img src="https://www.r-pkg.org/badges/version/fusionchartsR" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=fusionchartsR" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/fusionchartsR"></a> <img src="https://img.shields.io/badge/github%20version-1.1.1-green.svg"></p>
+<p><a href="https://cran.r-project.org/package=fusionchartsR" class="external-link"><img src="https://www.r-pkg.org/badges/version/fusionchartsR" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=fusionchartsR" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/fusionchartsR"></a> <img src="https://img.shields.io/badge/github%20version-1.2.0-green.svg"></p>
 <blockquote>
 <p>R interface to FusionCharts</p>
 </blockquote>
@@ -90,7 +89,10 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>You can retrieve a demo <a href="https://udmy52-alex0yahiaoui0martinez.shinyapps.io/FusionShiny/" class="external-link">here</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://alexym1.github.io/fusionchartsR/">fusionchartsR</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/runDemo.html">runDemo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="licence">Licence<a class="anchor" aria-label="anchor" href="#licence"></a>
@@ -127,7 +129,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Alex Yahiaoui Martinez <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-5315-675X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Alex Yahiaoui Martinez <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-5315-675X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 
@@ -142,7 +144,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

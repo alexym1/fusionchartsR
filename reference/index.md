@@ -1,0 +1,68 @@
+# Package index
+
+## Build
+
+Build a complete chart with one of its components.
+
+- [`ggfusionPlot()`](https://alexym1.github.io/fusionchartsR/reference/ggfusionplot.md)
+  **\[experimental\]** : Convert a ggplot2 object to a fusionchartsR
+  object.
+- [`fusionPlot()`](https://alexym1.github.io/fusionchartsR/reference/fusionPlot.md)
+  : Create new charts
+- [`fusionMultiPlot()`](https://alexym1.github.io/fusionchartsR/reference/fusionMultiPlot.md)
+  : Create new multiple charts
+- [`fusionGrid()`](https://alexym1.github.io/fusionchartsR/reference/fusionGrid.md)
+  : Create interactive data tables with FusionGrid
+- [`fusionCaption()`](https://alexym1.github.io/fusionchartsR/reference/fusionCaption.md)
+  : Adding FusionCharts caption
+- [`fusionSubcaption()`](https://alexym1.github.io/fusionchartsR/reference/fusionSubcaption.md)
+  : Adding FusionCharts subcaption
+- [`fusionAxis()`](https://alexym1.github.io/fusionchartsR/reference/fusionAxis.md)
+  : Adding FusionCharts axis
+- [`fusionLegend()`](https://alexym1.github.io/fusionchartsR/reference/fusionLegend.md)
+  : Adding FusionCharts legend
+- [`fusionTheme()`](https://alexym1.github.io/fusionchartsR/reference/fusionTheme.md)
+  : Adding FusionCharts theme
+
+## Custom
+
+Customize a chart with one of its components..
+
+- [`fusionAnchors()`](https://alexym1.github.io/fusionchartsR/reference/fusionAnchors.md)
+  : Adding FusionCharts anchors
+- [`fusionBackground()`](https://alexym1.github.io/fusionchartsR/reference/fusionBackground.md)
+  : Adding FusionCharts borders & background
+- [`fusionCanvas()`](https://alexym1.github.io/fusionchartsR/reference/fusionCanvas.md)
+  : Adding FusionCharts canvas
+- [`fusionCustomAxis()`](https://alexym1.github.io/fusionchartsR/reference/fusionCustomAxis.md)
+  : Customing FusionCharts axis
+- [`fusionCustomBoxplot()`](https://alexym1.github.io/fusionchartsR/reference/fusionCustomBoxplot.md)
+  : Customing "boxandwhisker2d" chart
+- [`fusionCustomLegend()`](https://alexym1.github.io/fusionchartsR/reference/fusionCustomLegend.md)
+  : Customing FusionCharts legend
+- [`fusionDiv()`](https://alexym1.github.io/fusionchartsR/reference/fusionDiv.md)
+  : Adding FusionCharts Div & Grid
+- [`fusionLogo()`](https://alexym1.github.io/fusionchartsR/reference/fusionLogo.md)
+  : Adding FusionCharts logo
+- [`fusionPalette()`](https://alexym1.github.io/fusionchartsR/reference/fusionPalette.md)
+  : Adding FusionCharts palette
+- [`fusionTooltip()`](https://alexym1.github.io/fusionchartsR/reference/fusionTooltip.md)
+  : Adding FusionCharts tooltip
+- [`fusionTrendline()`](https://alexym1.github.io/fusionchartsR/reference/fusionTrendline.md)
+  : Adding FusionCharts trend-line/trend-zone
+
+## App
+
+Run shiny app.
+
+- [`runDemo()`](https://alexym1.github.io/fusionchartsR/reference/runDemo.md)
+  : Fusioncharts Demo
+- [`fusionPlotOutput()`](https://alexym1.github.io/fusionchartsR/reference/fusionPlotOutput.md)
+  [`renderfusionPlot()`](https://alexym1.github.io/fusionchartsR/reference/fusionPlotOutput.md)
+  : Shiny bindings for fusionPlot
+- [`fusionMultiPlotOutput()`](https://alexym1.github.io/fusionchartsR/reference/fusionMultiPlot-shiny.md)
+  [`renderFusionMultiPlot()`](https://alexym1.github.io/fusionchartsR/reference/fusionMultiPlot-shiny.md)
+  : Shiny bindings for fusionMultiPlot
+- [`fusionGridOutput()`](https://alexym1.github.io/fusionchartsR/reference/fusionGrid-shiny.md)
+  [`renderFusionGrid()`](https://alexym1.github.io/fusionchartsR/reference/fusionGrid-shiny.md)
+  : Shiny bindings for fusionGrid
