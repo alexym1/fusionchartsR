@@ -7,7 +7,7 @@
 fusionTheme(
   fusionPlot,
   theme = c("fusion", "gammel", "candy", "zune", "ocean", "carbon", "umber", "fint",
-    "accessibility")
+    "access")
 )
 }
 \arguments{

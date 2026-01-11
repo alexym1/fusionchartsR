@@ -4,7 +4,7 @@ dependencies:
     src: "htmlwidgets/lib/fusioncharts-3.14.1"
     script:
     - js/fusioncharts.js
-    - js/themes/fusioncharts.theme.accessibility.js
+    - js/themes/fusioncharts.theme.access.js
     - js/themes/fusioncharts.theme.candy.js
     - js/themes/fusioncharts.theme.carbon.js
     - js/themes/fusioncharts.theme.fint.js
