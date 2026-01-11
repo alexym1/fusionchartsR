@@ -53,6 +53,8 @@ schema <- list(
 fusionGrid(mtcars[, 1:4], schema = schema)
 
 # With configuration
+# Some example may be found at:
+# https://www.fusioncharts.com/dev/fusiongrid/tutorials-fusiongrid/column-filter
 config <- list(
   layout = list(density = "compact", autoHeight = TRUE),
   rowOptions = list(
