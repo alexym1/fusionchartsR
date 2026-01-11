@@ -32,9 +32,9 @@ devtools::install_github("alexym1/fusionchartsR")
 ## Example
 
 ``` r
-  library(shiny)
-  library(fusionchartsR)
-  runDemo()
+library(shiny)
+library(fusionchartsR)
+runDemo()
 ```
 
 ## Licence
