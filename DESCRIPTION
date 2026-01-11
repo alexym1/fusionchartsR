@@ -1,6 +1,6 @@
 Package: fusionchartsR
 Type: Package
-Version: 1.1.1
+Version: 1.2.0
 Title: Embedding FusionCharts in R
 Description: FusionCharts provides awesome and minimalist functions to make beautiful interactive charts <https://www.fusioncharts.com/>.
 Authors@R: c(

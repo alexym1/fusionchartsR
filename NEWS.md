@@ -1,7 +1,13 @@
+# fusionchartsR 1.2.0
+
+* Add `fusionGrid` to render interactive table
+* Upgrade version of FusionCharts Suite XT to 4.2.0 including:
+    - New themes like `fint` and `access`
+
+
 # fusionchartsR 1.1.1
 
 * Remove `docs` folder to avoid confusion with pkgdown
-
 
 # fusionchartsR 1.1.0
 
