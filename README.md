@@ -5,7 +5,7 @@
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/fusionchartsR)](https://cran.r-project.org/package=fusionchartsR)
 [![](https://cranlogs.r-pkg.org/badges/fusionchartsR)](https://cran.r-project.org/package=fusionchartsR)
-![](https://img.shields.io/badge/github%20version-1.1.1-green.svg)
+![](https://img.shields.io/badge/github%20version-1.2.0-green.svg)
 
 > R interface to FusionCharts
 
@@ -31,8 +31,11 @@ devtools::install_github("alexym1/fusionchartsR")
 
 ## Example
 
-You can retrieve a demo
-[here](https://udmy52-alex0yahiaoui0martinez.shinyapps.io/FusionShiny/).
+``` r
+library(shiny)
+library(fusionchartsR)
+runDemo()
+```
 
 ## Licence
 

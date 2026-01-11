@@ -1,9 +1,11 @@
 dependencies:
   - name: fusioncharts
-    version: 3.14.1
-    src: "htmlwidgets/lib/fusioncharts-3.14.1"
+    version: 4.2.0
+    src: "htmlwidgets/lib/fusioncharts-4.2.0"
     script:
     - js/fusioncharts.js
+    - js/themes/fusioncharts.theme.access.js
+    - js/themes/fusioncharts.theme.boilerplate.js
     - js/themes/fusioncharts.theme.candy.js
     - js/themes/fusioncharts.theme.carbon.js
     - js/themes/fusioncharts.theme.fint.js

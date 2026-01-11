@@ -1,6 +1,6 @@
 Package: fusionchartsR
 Type: Package
-Version: 1.1.1
+Version: 1.2.0
 Title: Embedding FusionCharts in R
 Description: FusionCharts provides awesome and minimalist functions to make beautiful interactive charts <https://www.fusioncharts.com/>.
 Authors@R: c(
@@ -12,7 +12,7 @@ URL: https://alexym1.github.io/fusionchartsR/, https://github.com/alexym1/fusion
 BugReports: https://github.com/alexym1/fusionchartsR/issues
 Encoding: UTF-8
 LazyData: false
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports: ggplot2, htmlwidgets, jsonlite, magrittr, scales, shiny
 Suggests: rmarkdown, knitr
 Roxygen: list(markdown = TRUE)

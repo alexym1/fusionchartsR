@@ -1,0 +1,8 @@
+dependencies:
+  - name: fusiongrid
+    version: 1.0.0
+    src: "htmlwidgets/lib/fusiongrid-1.0.0"
+    script:
+      - js/fusiongrid.js
+    stylesheet:
+      - css/fusiongrid.css
