@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/alexym1/fusionchartsR/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/alexym1/fusionchartsR/blob/v1.2.0/DESCRIPTION)
 
 Yahiaoui Martinez A (2026). *fusionchartsR: Embedding FusionCharts in
 R*. R package version 1.2.0, <https://alexym1.github.io/fusionchartsR/>.
