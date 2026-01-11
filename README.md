@@ -31,8 +31,11 @@ devtools::install_github("alexym1/fusionchartsR")
 
 ## Example
 
-You can retrieve a demo
-[here](https://udmy52-alex0yahiaoui0martinez.shinyapps.io/FusionShiny/).
+``` r
+  library(shiny)
+  library(fusionchartsR)
+  runDemo()
+```
 
 ## Licence
 
