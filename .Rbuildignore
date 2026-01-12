@@ -10,3 +10,4 @@
 ^LICENSE\.md$
 ^NEWS\.md$
 ^codecov\.yml$
+^inst/htmlwidgets/lib/fusioncharts-.*/license$
