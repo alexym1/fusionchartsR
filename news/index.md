@@ -2,6 +2,8 @@
 
 ## fusionchartsR 1.2.0
 
+CRAN release: 2026-01-12
+
 - Add `fusionGrid` to render interactive table
 - Upgrade version of FusionCharts Suite XT to 4.2.0 including new themes
   like `fint` and `access`
